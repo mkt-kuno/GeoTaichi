@@ -53,7 +53,7 @@ class LinearFunction:
             self.function[i - 1].set_value(start_time, end_time, start_value, end_value)
 
             start_time = end_time
-            start_value =end_value          
+            start_value = end_value          
 
     @ti.func
     def get_interval_value(self, curr_time):
