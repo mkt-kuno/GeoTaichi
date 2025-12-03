@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "geotaichi"
+version = "0.1.0"
+description = "A High Performance Multiscale and Multiphysics Simulator"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "GPL-3.0"}
+authors = [
+    {name = "Shi-Yihao, Guo-Ning"}
+]
+keywords = ["geomechanics", "simulation", "DEM", "MPM", "taichi"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Physics",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+
+dependencies = [
+    "taichi>=1.6.0",
+    "numpy>=1.20.0",
+    "scipy",
+    "trimesh",
+    "imageio",
+    "matplotlib",
+    "psutil",
+    "pynvml>=11.4.1",
+    "shapely>=1.8",
+    "meshio",
+    "rtree",
+    "scikit-image",
+    "open3d",
+    "pillow",
+    "rich",
+]
+
+[project.urls]
+Homepage = "https://github.com/Yihao-Shi/GeoTaichi"
+Repository = "https://github.com/Yihao-Shi/GeoTaichi"
+Documentation = "https://github.com/Yihao-Shi/GeoTaichi"
+"Bug Tracker" = "https://github.com/Yihao-Shi/GeoTaichi/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["geotaichi*", "third_party*"]
+exclude = ["test*", "example*", "docs*"]
