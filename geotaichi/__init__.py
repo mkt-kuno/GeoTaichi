@@ -9,17 +9,15 @@ import taichi as ti
 import psutil, platform
 import sys, os, datetime  
 
-from src import DEM, MPM, DEMPM
+from .sdf.BasicShape import arbitrarily, polyhedron, surfacefunction, polysuperquadrics, polysuperellipsoid
 
-from src.sdf.BasicShape import arbitrarily, polyhedron, surfacefunction, polysuperquadrics, polysuperellipsoid
-
-from src.sdf.SDFs2D import (
+from .sdf.SDFs2D import (
     circle, line, slab,
     rectangle, rounded_rectangle, equilateral_triangle,
     hexagon, rounded_x, cross, polygon
 )
 
-from src.sdf.SDFs3D import (
+from .sdf.SDFs3D import (
     sphere, plane, slab, 
     box, rounded_box, box_frame, torus, capped_torus,
     link, hexagonal_prism, capsule, cylinder, capped_cylinder, rounded_cylinder,
@@ -27,12 +25,12 @@ from src.sdf.SDFs3D import (
     pyramid, rhombus, tetrahedron, dodecahedron, icosahedron
 )
 
-from src.sdf.text import (
+from .sdf.text import (
     image,
     text,
 )
 
-from src.sdf.ease import (
+from .sdf.ease import (
     linear,
     in_quad, out_quad, in_out_quad,
     in_cubic, out_cubic, in_out_cubic,
@@ -47,7 +45,53 @@ from src.sdf.ease import (
     in_square, out_square, in_out_square,
 )
 
-import src.utils.GlobalVariable as GlobalVariable
+from .utils import GlobalVariable
+
+__description__ = 'A High Performance Multiscale and Multiphysics Simulator'
+
+
+def DEM(title=None, log=True):
+    if title is None:
+        title = __description__ 
+        
+    from .dem.mainDEM import DEM 
+    return DEM(title=title, log=log)
+    
+    
+def MPM(title=None, log=True):
+    if title is None:
+        title = __description__ 
+        
+    from .mpm.mainMPM import MPM 
+    return MPM(title=title, log=log)
+    
+    
+def DEMPM(dem=None, mpm=None, title=None, coupling="Lagrangian", log=True):
+    if title is None:
+        title = __description__ 
+        
+    if dem is None:
+        dem = DEM(title='', log=False)
+        dem.sims.set_dem_coupling(True)
+    if mpm is None:
+        mpm = MPM(title='', log=False)
+        mpm.sims.set_mpm_coupling(coupling)
+    from .mpdem.mainDEMPM import DEMPM 
+    return DEMPM(dem, mpm, log=log)
+       
+        
+def MPDEM(dem=None, mpm=None, coupling="Lagrangian", title=None, log=True):
+    if title is None:
+        title = __description__ 
+        
+    if dem is None:
+        dem = DEM(title='', log=False)
+        dem.sims.set_dem_coupling(True)
+    if mpm is None:
+        mpm = MPM(title='', log=False)
+        mpm.sims.set_mpm_coupling(coupling)
+    from .mpdem.mainDEMPM import DEMPM 
+    return DEMPM(dem, mpm, log=log)
 
 class Logger(object):
     def __init__(self, filename='Default.log', path='./'):
