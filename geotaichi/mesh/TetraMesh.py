@@ -1,7 +1,11 @@
 import numpy as np
-import gmsh, tempfile
+try:
+    import gmsh
+except ImportError:
+    gmsh = None
+import tempfile
 
-from ..mesh.GaussPoint import GaussPointInTriangle
+from .GaussPoint import GaussPointInTriangle
 
 
 class TetraMesh(object):
@@ -13,6 +17,11 @@ class TetraMesh(object):
         return gauss_point.gpcoords
     
     def generate_gauss_point(self, mesh, total_cell, file_name=None):
+        if gmsh is None:
+            raise ImportError(
+                "gmsh is required for mesh generation but not installed. "
+                "Install with: pip install 'geotaichi[mesh]' or pip install gmsh"
+            )
         gauss_coords = np.array([])
         points = np.array([])
         cells = np.array([])

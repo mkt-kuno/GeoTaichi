@@ -1,5 +1,8 @@
 import os
-import gmsh
+try:
+    import gmsh
+except ImportError:
+    gmsh = None
 import numpy as onp
 import meshio
 
@@ -148,6 +151,11 @@ def box_mesh_gmsh(Nx, Ny, Nz, Lx, Ly, Lz, data_dir, ele_type='HEX8'):
 
     Accepts ele_type = 'HEX8', 'TET4' or 'TET10', mesh will be generated with the help of gmsh
     """
+    if gmsh is None:
+        raise ImportError(
+            "gmsh is required for mesh generation but not installed. "
+            "Install with: pip install 'geotaichi[mesh]' or pip install gmsh"
+        )
 
     assert ele_type != 'HEX20', f"gmsh cannot produce HEX20 mesh?"
 
@@ -201,6 +209,11 @@ def cylinder_mesh_gmsh(data_dir, R=5, H=10, circle_mesh=5, hight_mesh=20, rect_r
     hight_mesh:num of meshs in hight
     rect_ratio: rect length/R
     """
+    if gmsh is None:
+        raise ImportError(
+            "gmsh is required for mesh generation but not installed. "
+            "Install with: pip install 'geotaichi[mesh]' or pip install gmsh"
+        )
     rect_coor = R*rect_ratio
     msh_dir = os.path.join(data_dir, 'msh')
     os.makedirs(msh_dir, exist_ok=True)
