@@ -73,7 +73,7 @@ def Normalized(q):
 def RandomGenerator():
     # From http://planning.cs.uiuc.edu/node198.html. 
     # See K. Shoemake - Uniform random rotations - In D. Kirk, editor, Graphics Gems III, pages 124-132. Academic, New York, 1992.
-    u1, u2, u3 = safe_random(float), safe_random(float), safe_random(float)
+    u1, u2, u3 = safe_random(), safe_random(), safe_random()
     q = vec4f([ti.sqrt(1 - u1) * ti.sin(2 * PI * u2),
                ti.sqrt(1 - u1) * ti.cos(2 * PI * u2),
                ti.sqrt(u1) * ti.sin(2 * PI * u3),

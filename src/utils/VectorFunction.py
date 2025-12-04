@@ -39,7 +39,7 @@ def cartesian_coosys_to_local_orthogonal(globals, ex_local, ey_local, ez_local):
 
 @ti.func
 def return_uniform3f():
-    return vec3f([2*(safe_random(float)-0.5), 2*(safe_random(float)-0.5), 2*(safe_random(float)-0.5)]).normalized()
+    return vec3f([2*(safe_random()-0.5), 2*(safe_random()-0.5), 2*(safe_random()-0.5)]).normalized()
 
 @ti.func
 def TACIHI_NUMPY_SUB(TI_VEC, NP_VEC):

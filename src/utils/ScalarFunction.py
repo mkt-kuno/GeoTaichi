@@ -131,17 +131,14 @@ def biInterpolate(pt, xExtr, yExtr, knownVal):
 
 
 @ti.func
-def safe_random(dtype=float):
+def safe_random():
     """
     Safe wrapper for ti.random() that works with Vulkan/SPIR-V backend.
-    Always generates random numbers as f32, then casts to the desired type.
+    Always generates random numbers as f32, then casts to the current float precision.
     This avoids the SPIR-V limitation where ti.random() only supports 32-bit types.
     
-    Args:
-        dtype: Target data type (default: float, which follows ti.init default_fp)
-    
     Returns:
-        Random float value in [0, 1) with the specified dtype
+        Random float value in [0, 1) with the current precision (follows ti.init default_fp)
     """
-    # Always generate as f32 (supported by SPIR-V), then cast to target type
-    return ti.cast(ti.random(ti.f32), dtype)
+    # Always generate as f32 (supported by SPIR-V), then cast to current float type
+    return ti.cast(ti.random(ti.f32), float)

@@ -298,7 +298,7 @@ def _kernel_bounding_sphere_1(nspheres: int, visit: ti.template(), x_pebble: ti.
 
         isphere, nvisit = -1, 0
         while isphere < 0 or visit[isphere] == 1 or isphere >= nspheres:
-            isphere = int(safe_random(float) * nspheres)
+            isphere = int(safe_random() * nspheres)
 
         nvisit += 1
         visit[isphere] = 1
@@ -308,7 +308,7 @@ def _kernel_bounding_sphere_1(nspheres: int, visit: ti.template(), x_pebble: ti.
 
         while nvisit < nspheres:
             while isphere < 0 or visit[isphere] == 1 or isphere >= nspheres:
-                isphere = int(safe_random(float) * nspheres)
+                isphere = int(safe_random() * nspheres)
 
             nvisit += 1
             visit[isphere] = 1
@@ -363,9 +363,9 @@ def _kernel_center_of_mass_1(ntry: int, nspheres: int, xcm: ti.template(), xmin:
     nsuccess, x_try = 0, ZEROVEC3f
     ti.loop_config(serialize=True)
     for _ in range(ntry):
-        x_try[0] = xmin[0] + (xmax[0] - xmin[0]) * safe_random(float)
-        x_try[1] = xmin[1] + (xmax[1] - xmin[1]) * safe_random(float)
-        x_try[2] = xmin[2] + (xmax[2] - xmin[2]) * safe_random(float)
+        x_try[0] = xmin[0] + (xmax[0] - xmin[0]) * safe_random()
+        x_try[1] = xmin[1] + (xmax[1] - xmin[1]) * safe_random()
+        x_try[2] = xmin[2] + (xmax[2] - xmin[2]) * safe_random()
 
         alreadyChecked = False
         for pebble in range(nspheres):
@@ -423,9 +423,9 @@ def _kernel_inertia_moment_1(ntry: int, nspheres: int, xcm: ti.types.vector(3, f
     x_try, moi_vol = ZEROVEC3f, ZEROMAT3x3
     ti.loop_config(serialize=True)
     for _ in range(ntry):
-        x_try[0] = xmin[0] + (xmax[0] - xmin[0]) * safe_random(float)
-        x_try[1] = xmin[1] + (xmax[1] - xmin[1]) * safe_random(float)
-        x_try[2] = xmin[2] + (xmax[2] - xmin[2]) * safe_random(float)
+        x_try[0] = xmin[0] + (xmax[0] - xmin[0]) * safe_random()
+        x_try[1] = xmin[1] + (xmax[1] - xmin[1]) * safe_random()
+        x_try[2] = xmin[2] + (xmax[2] - xmin[2]) * safe_random()
         
         alreadyChecked = False
         for pebble in range(nspheres):

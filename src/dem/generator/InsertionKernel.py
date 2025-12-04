@@ -484,11 +484,11 @@ def kernel_sphere_poisson_sampling_(min_rad: float, max_rad: float, tries_defaul
     while tries < insert_body_num[None] and tries < expected_body_num:
         source_x, source_rad = sphere_coords[tries], sphere_radii[tries]
         for _ in range(tries_default):
-            sphere_radius = min_rad + safe_random(float) * (max_rad - min_rad)
-            u, v = safe_random(float), safe_random(float)
+            sphere_radius = min_rad + safe_random() * (max_rad - min_rad)
+            u, v = safe_random(), safe_random()
             theta, phi = 2 * PI * u, ti.acos(2 * v - 1)
             randvector = vec3f([ti.sin(theta) * ti.sin(phi), ti.cos(theta) * ti.sin(phi), ti.cos(phi)]).normalized()
-            offset = randvector * ((1 + safe_random(float)) * sphere_radius + source_rad)
+            offset = randvector * ((1 + safe_random()) * sphere_radius + source_rad)
             sphere_coord = source_x + offset
     
             if check_in_domain(sphere_coord, sphere_radius) and insert_body_num[None] < expected_body_num and \
@@ -507,8 +507,8 @@ def kernel_sphere_generate_without_overlap_(min_rad: float, max_rad: float, trie
     while insert_body_num[None] < expected_body_num:
         count = 0
         for _ in range(tries_default):
-            sphere_radius = min_rad + safe_random(float) * (max_rad - min_rad)
-            offset = vec3f([safe_random(float), safe_random(float), safe_random(float)]) * region_size
+            sphere_radius = min_rad + safe_random() * (max_rad - min_rad)
+            offset = vec3f([safe_random(), safe_random(), safe_random()]) * region_size
             sphere_coord = start_point + offset 
             
             if check_in_domain(sphere_coord, sphere_radius) and \
@@ -529,9 +529,9 @@ def kernel_sphere_generate_lattice_(min_rad: float, max_rad: float, expected_bod
                                     particle_neighbor: ti.template(), check_in_domain: ti.template(), overlap: ti.template(), insert_particle: ti.template()):
     tries = insert_body_num[None]
     while tries < expected_body_num:
-        sphere_radius = min_rad + safe_random(float) * (max_rad - min_rad)
+        sphere_radius = min_rad + safe_random() * (max_rad - min_rad)
         randomID = expected_body_num - insert_body_num[None] - 1
-        offset = vec3f([safe_random(float), safe_random(float), safe_random(float)]) * (max_rad - sphere_radius)
+        offset = vec3f([safe_random(), safe_random(), safe_random()]) * (max_rad - sphere_radius)
         sphere_coord = start_point + (vec3f(vectorize_id(valid[randomID], position_distribution)) + 0.5) * 2. * max_rad + offset
         if check_in_domain(sphere_coord, sphere_radius):
             if overlap(cell_num, cell_size, sphere_coord - start_point, sphere_radius, insert_particle_in_neighbor, position, radius, num_particle_in_cell, particle_neighbor) == 0: 
@@ -562,8 +562,8 @@ def kernel_distribute_sphere_(min_rad: float, max_rad: float, volume_expect: flo
                               sphere_coords: ti.template(), sphere_radii: ti.template(), start_point: ti.types.vector(3, float), region_size: ti.types.vector(3, float), check_in_domain: ti.template()) -> float:
     inserted_volume = 0.
     while inserted_volume < volume_expect:
-        sphere_radius = min_rad + safe_random(float) * (max_rad - min_rad)
-        offset = vec3f([safe_random(float), safe_random(float), safe_random(float)]) * region_size
+        sphere_radius = min_rad + safe_random() * (max_rad - min_rad)
+        offset = vec3f([safe_random(), safe_random(), safe_random()]) * region_size
         sphere_coord = start_point + offset 
         
         if check_in_domain(sphere_coord, sphere_radius):        
@@ -606,14 +606,14 @@ def kernel_multisphere_poisson_sampling_(nspheres: int, r_equiv: float, r_bound:
         source_x, source_rad = clump_coords[tries], clump_radii[tries]
         for _ in range(tries_default):
             nsphere = nspheres
-            equiv_rad = min_rad + safe_random(float) * (max_rad - min_rad)
+            equiv_rad = min_rad + safe_random() * (max_rad - min_rad)
             scale_factor = equiv_rad / r_equiv
 
             bound_rad = scale_factor * r_bound
-            u, v = safe_random(float), safe_random(float)
+            u, v = safe_random(), safe_random()
             theta, phi = 2 * PI * u, ti.acos(2 * v - 1)
             randvector = vec3f([ti.sin(theta) * ti.sin(phi), ti.cos(theta) * ti.sin(phi), ti.cos(phi)]).normalized()
-            offset = randvector * ((1 + safe_random(float)) * bound_rad + source_rad)
+            offset = randvector * ((1 + safe_random()) * bound_rad + source_rad)
             com_pos = source_x + offset
             clump_orient = get_orientation()
             invalid = 0
@@ -647,10 +647,10 @@ def kernel_multisphere_generate_without_overlap_(nspheres: int, r_equiv: float, 
     while insert_body_num[None] < expected_body_num:
         count = 0
         for _ in range(tries_default):
-            equiv_rad = min_rad + safe_random(float) * (max_rad - min_rad)
+            equiv_rad = min_rad + safe_random() * (max_rad - min_rad)
             scale_factor = equiv_rad / r_equiv
             
-            offset = vec3f([safe_random(float), safe_random(float), safe_random(float)]) * region_size
+            offset = vec3f([safe_random(), safe_random(), safe_random()]) * region_size
             com_pos = start_point + offset 
             clump_orient = get_orientation()
             invalid = 0
@@ -685,10 +685,10 @@ def kernel_distribute_multisphere_(nspheres: int, r_equiv: float, volume_expect:
                                    start_point: ti.types.vector(3, float), region_size: ti.types.vector(3, float), check_in_domain: ti.template()) -> float:
     inserted_volume = 0.
     while inserted_volume < expected_particle_volume:
-        equiv_rad = min_rad + safe_random(float) * (max_rad - min_rad)
+        equiv_rad = min_rad + safe_random() * (max_rad - min_rad)
         scale_factor = equiv_rad / r_equiv
 
-        offset = vec3f([safe_random(float), safe_random(float), safe_random(float)]) * region_size
+        offset = vec3f([safe_random(), safe_random(), safe_random()]) * region_size
         com_pos = start_point + offset 
         clump_orient = get_orientation()
 
@@ -835,7 +835,7 @@ def kernel_rebuild_servo(start: int, number: int, servo: ti.template(), active: 
 @ti.kernel
 def generate_sphere_from_file(min_rad: float, max_rad: float, groupID: int, matID: int, voxelized_points_np: ti.types.ndarray(), init_v: ti.types.vector(3, float), init_w: ti.types.vector(3, float)):
     for voxelize in voxelized_points_np:
-        radius = min_rad + safe_random(float) * (max_rad - min_rad)
+        radius = min_rad + safe_random() * (max_rad - min_rad)
         new_pos = voxelized_points_np[voxelize]
         
 

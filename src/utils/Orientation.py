@@ -37,7 +37,7 @@ class set_orientation:
 
     @ti.func
     def get_uniform_orientation(self):
-        return vec3f([360.*safe_random(float), 360.*safe_random(float), 360.*safe_random(float)])
+        return vec3f([360.*safe_random(), 360.*safe_random(), 360.*safe_random()])
 
     @ti.kernel
     def record_orientation(self, orient: ti.types.vector(3, float)):
