@@ -148,7 +148,7 @@ set PYTHONPATH=%PYTHONPATH%;%CD%
 ### System Requirements
 
 **Minimum Requirements:**
-- Python 3.8 or higher
+- Python 3.8 - 3.12 (Python 3.13+ not yet supported due to Open3D dependency)
 - 4GB RAM (8GB+ recommended)
 - CPU with AVX2 support
 
@@ -164,21 +164,32 @@ set PYTHONPATH=%PYTHONPATH%;%CD%
 
 ### Known Dependency Issues
 
-**Issue 1: gmsh library dependencies**
+**Issue 1: Python version compatibility**
+- **Python 3.8-3.12 only**: Open3D currently supports Python up to 3.12
+- Python 3.13+ is not yet supported
+- **Solution:** Use Python 3.12 or earlier
+
+**Issue 2: Taichi SyntaxWarning (harmless)**
+- You may see warnings like: `SyntaxWarning: invalid escape sequence '\['` from `taichi/tools/image.py`
+- **This is a known issue in Taichi 1.6.0 and does not affect functionality**
+- The warning comes from Taichi's documentation strings and will be fixed in future Taichi releases
+- **Solution:** Can be safely ignored, or suppress warnings with: `python -W ignore::SyntaxWarning`
+
+**Issue 3: gmsh library dependencies**
 - `gmsh` requires system library `libGLU.so.1` on Linux
 - **Solution:** `sudo apt-get install libglu1-mesa` (Ubuntu/Debian)
 - Or install with: `pip install -e ".[mesh]"` only if needed
 
-**Issue 2: open3d on some systems**
+**Issue 4: open3d on some systems**
 - `open3d` may have compatibility issues with older systems
 - **Solution:** Try installing specific version: `pip install open3d==0.17.0`
 
-**Issue 3: shapely with spatial indexing**
+**Issue 5: shapely with spatial indexing**
 - `rtree` requires `libspatialindex`
 - **Solution (Ubuntu/Debian):** `sudo apt-get install libspatialindex-dev`
 - **Solution (macOS):** `brew install spatialindex`
 
-**Issue 4: GPU support**
+**Issue 6: GPU support**
 - NVIDIA GPU support requires CUDA toolkit installation
 - See [CUDA Installation Guide](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
 - macOS uses Metal backend automatically (no CUDA needed)
