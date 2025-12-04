@@ -29,7 +29,7 @@ class MatrixFreeBICGSTAB(object):
         elif arch == ti.cpu:
             self.reduce = reduce_atomic
         else:
-            raise RuntimeError(f"{str(arch)} is not supported for preconditioned bi-conjuction gradient.")
+            raise RuntimeError(f"{str(arch)} is not supported for preconditioned bi-conjugate gradient.")
 
     def scalar_rest(self):
         self.rho = 0.0

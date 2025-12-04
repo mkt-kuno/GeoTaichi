@@ -140,7 +140,9 @@ def init(dim=3, arch="gpu", cpu_max_num_threads=0, offline_cache=True, debug=Fal
                     device_memory_GB = min(device_memory_GB, bytes_to_GB(gpu_memory.free))
                     ti.init(arch=ti.gpu, offline_cache=offline_cache, device_memory_GB=device_memory_GB, debug=debug, default_fp=default_fp, default_ip=default_ip, kernel_profiler=kernel_profiler, log_level=ti.ERROR)
                 elif not device_memory_fraction is None:
-                    device_memory_GB = min(device_memory_fraction, bytes_to_GB(gpu_memory.free) / bytes_to_GB(gpu_memory.total))
+                    # Use fraction of total GPU memory, capped at available free memory
+                    requested_memory_GB = device_memory_fraction * bytes_to_GB(gpu_memory.total)
+                    device_memory_GB = min(requested_memory_GB, bytes_to_GB(gpu_memory.free))
                     ti.init(arch=ti.gpu, offline_cache=offline_cache, device_memory_fraction=device_memory_fraction, debug=debug, default_fp=default_fp, default_ip=default_ip, kernel_profiler=kernel_profiler, log_level=ti.ERROR)
             except Exception as e:
                 print(f"Warning: Could not initialize NVIDIA GPU ({str(e)}). Falling back to CPU.")
