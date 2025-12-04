@@ -1,7 +1,7 @@
-from ..dem.neighbor.neighbor_kernel import *
-from ..dem.neighbor.NeighborBase import NeighborBase
-from ..dem.SceneManager import myScene
-from ..utils.PrefixSum import PrefixSumExecutor
+from .neighbor_kernel import *
+from .NeighborBase import NeighborBase
+from ..SceneManager import myScene
+from ...utils.PrefixSum import PrefixSumExecutor
 
 
 class BrustSearch(NeighborBase):

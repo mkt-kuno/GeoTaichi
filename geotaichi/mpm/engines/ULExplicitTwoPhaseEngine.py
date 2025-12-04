@@ -1,11 +1,11 @@
-from ..mpm.boundaries.BoundaryCore import *
-from ..mpm.engines.ULExplicitEngine import ULExplicitEngine
-from ..mpm.engines.EngineKernel import *
-from ..mpm.SceneManager import myScene
-from ..mpm.Simulation import Simulation
-from ..mpm.SpatialHashGrid import SpatialHashGrid
-from ..utils.linalg import no_operation
-from ..mpm.engines.FreeSurfaceDetection import *
+from ..boundaries.BoundaryCore import *
+from .ULExplicitEngine import ULExplicitEngine
+from .EngineKernel import *
+from ..SceneManager import myScene
+from ..Simulation import Simulation
+from ..SpatialHashGrid import SpatialHashGrid
+from ...utils.linalg import no_operation
+from .FreeSurfaceDetection import *
 
 
 class ULExplicitTwoPhaseEngine(ULExplicitEngine):

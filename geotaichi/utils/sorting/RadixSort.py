@@ -1,7 +1,7 @@
 import taichi as ti
 from taichi.lang.impl import current_cfg
 
-from ..utils.PrefixSum import PrefixSumExecutor
+from ..PrefixSum import PrefixSumExecutor
 
 
 # Reference: Ha, L., Krüger, J., & Silva, C. T. (2009, December). Fast Four‐Way Parallel Radix Sorting on GPUs. In Computer Graphics Forum (Vol. 28, No. 8, pp. 2368-2378). Oxford, UK: Blackwell Publishing Ltd.

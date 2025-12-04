@@ -1,9 +1,9 @@
 import taichi as ti
 
-from ..utils.constants import PI
-from ..utils.Quaternion import ThetaToRotationMatrix, RandomGenerator, SetFromEuler, SetToRotate
-from ..utils.TypeDefination import vec3f, vec2f, vec2i, vec4f, vec3u8, vec3i
-from ..utils.ScalarFunction import vectorize_id, linearize3D, equal_to
+from ...utils.constants import PI
+from ...utils.Quaternion import ThetaToRotationMatrix, RandomGenerator, SetFromEuler, SetToRotate
+from ...utils.TypeDefination import vec3f, vec2f, vec2i, vec4f, vec3u8, vec3i
+from ...utils.ScalarFunction import vectorize_id, linearize3D, equal_to
 
 
 @ti.func

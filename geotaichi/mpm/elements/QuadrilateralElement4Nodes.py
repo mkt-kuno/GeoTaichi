@@ -3,18 +3,18 @@ from itertools import product
 import numpy as np
 import taichi as ti
 
-from ..mpm.elements.QuadrilateralKernel import *
-from ..mpm.structs import HexahedronGuassCell, HexahedronCell, ParticleCPDI, IncompressibleCell
-from ..mpm.elements.ElementNodesTHB_Generate import ElemNodesGen
-from ..mpm.elements.ElementBase import ElementBase
-from ..mpm.Simulation import Simulation
-from ..mesh.GaussPoint import GaussPointInRectangle
-from ..mesh.QuadMesh import QuadrilateralMesh
-from ..utils.PrefixSum import PrefixSumExecutor
-from ..utils.linalg import round32, flip2d_linear
-from ..utils.ShapeFunctions import *
-from ..utils.TypeDefination import u1, vec2f, vec2i
-from ..utils import GlobalVariable as GlobalVariable
+from .QuadrilateralKernel import *
+from ..structs import HexahedronGuassCell, HexahedronCell, ParticleCPDI, IncompressibleCell
+from .ElementNodesTHB_Generate import ElemNodesGen
+from .ElementBase import ElementBase
+from ..Simulation import Simulation
+from ...mesh.GaussPoint import GaussPointInRectangle
+from ...mesh.QuadMesh import QuadrilateralMesh
+from ...utils.PrefixSum import PrefixSumExecutor
+from ...utils.linalg import round32, flip2d_linear
+from ...utils.ShapeFunctions import *
+from ...utils.TypeDefination import u1, vec2f, vec2i
+from ...utils import GlobalVariable as GlobalVariable
 
 
 Threshold = 1e-12

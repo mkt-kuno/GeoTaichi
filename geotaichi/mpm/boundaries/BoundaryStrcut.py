@@ -1,7 +1,7 @@
 import taichi as ti
 
-from ..utils.constants import DELTA, DELTA2D
-from ..utils.TypeDefination import vec2f, vec3f, mat2x2, mat3x3
+from ...utils.constants import DELTA, DELTA2D
+from ...utils.TypeDefination import vec2f, vec3f, mat2x2, mat3x3
 
 
 @ti.dataclass

@@ -1,9 +1,9 @@
 import taichi as ti
 import numpy as np
 
-from ..contact_detection.bounding_volume_hierarchy.AABB import AABB
-from ..utils.BitFunction import morton3d32
-from ..utils.TypeDefination import vec3f
+from ...contact_detection.bounding_volume_hierarchy.AABB import AABB
+from ...utils.BitFunction import morton3d32
+from ...utils.TypeDefination import vec3f
 
 
 

@@ -1,12 +1,12 @@
 import taichi as ti
 
-from ..physics_model.consititutive_model.infinitesimal_strain.MaterialKernel import *
-from ..physics_model.consititutive_model.SoftenModel import *
-from ..physics_model.consititutive_model.infinitesimal_strain.RateDependent import *
-from ..utils.constants import LTOL, MAXITS, NSUB, EPS, STOL, dTmin, FTOL
-from ..physics_model.consititutive_model.infinitesimal_strain.InfinitesimalStrainModel import InfinitesimalStrainModel
-from ..utils.VectorFunction import voigt_tensor_dot, Squared
-from ..utils.ObjectIO import DictIO
+from ...physics_model.consititutive_model.infinitesimal_strain.MaterialKernel import *
+from ...physics_model.consititutive_model.SoftenModel import *
+from ...physics_model.consititutive_model.infinitesimal_strain.RateDependent import *
+from ...utils.constants import LTOL, MAXITS, NSUB, EPS, STOL, dTmin, FTOL
+from ...physics_model.consititutive_model.infinitesimal_strain.InfinitesimalStrainModel import InfinitesimalStrainModel
+from ...utils.VectorFunction import voigt_tensor_dot, Squared
+from ...utils.ObjectIO import DictIO
 
 
 @ti.data_oriented

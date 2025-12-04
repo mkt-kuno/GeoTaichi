@@ -1,8 +1,8 @@
 import taichi as ti
 
 
-from ..utils.TypeDefination import vec3i, vec3u8
-from ..utils.ScalarFunction import vectorize_id
+from ...utils.TypeDefination import vec3i, vec3u8
+from ...utils.ScalarFunction import vectorize_id
 
 
 @ti.kernel

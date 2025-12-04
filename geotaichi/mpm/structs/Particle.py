@@ -1,9 +1,9 @@
 import taichi as ti
 
-from ..utils.constants import ZEROVEC3f, ZEROVEC6f
-from ..utils.TypeDefination import vec2f, vec3f, vec2u8, vec3u8, vec6f, mat2x2, mat3x3
-from ..utils.BitFunction import Zero2OneVector
-from ..utils import GlobalVariable as GlobalVariable
+from ...utils.constants import ZEROVEC3f, ZEROVEC6f
+from ...utils.TypeDefination import vec2f, vec3f, vec2u8, vec3u8, vec6f, mat2x2, mat3x3
+from ...utils.BitFunction import Zero2OneVector
+from ...utils import GlobalVariable as GlobalVariable
 
 
 @ti.dataclass

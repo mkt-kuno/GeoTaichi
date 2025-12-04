@@ -2,15 +2,15 @@ import taichi as ti
 import os
 import numpy as np
 
-from ..dem.structs.BaseStruct import (ContactTable, ISContactTable, HistoryContactTable, HistoryISContactTable, DigitalContactTable)
-from ..dem.contact.ContactKernel import *
-from ..dem.Simulation import Simulation
-from ..dem.SceneManager import myScene
-from ..dem.neighbor.NeighborBase import NeighborBase
-from ..dem.neighbor.HierarchicalLinkedCell import HierarchicalLinkedCell
-from ..utils.ObjectIO import DictIO
-from ..utils.linalg import round32
-from ..utils.TypeDefination import u1
+from ..structs.BaseStruct import (ContactTable, ISContactTable, HistoryContactTable, HistoryISContactTable, DigitalContactTable)
+from .ContactKernel import *
+from ..Simulation import Simulation
+from ..SceneManager import myScene
+from ..neighbor.NeighborBase import NeighborBase
+from ..neighbor.HierarchicalLinkedCell import HierarchicalLinkedCell
+from ...utils.ObjectIO import DictIO
+from ...utils.linalg import round32
+from ...utils.TypeDefination import u1
 
 class ContactModelBase(object):
     sims: Simulation

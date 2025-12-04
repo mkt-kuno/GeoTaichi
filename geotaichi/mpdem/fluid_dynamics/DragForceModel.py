@@ -1,7 +1,7 @@
 import taichi as ti
 
-from ..utils.constants import PI
-from ..utils.ObjectIO import DictIO
+from ...utils.constants import PI
+from ...utils.ObjectIO import DictIO
 
 
 @ti.data_oriented

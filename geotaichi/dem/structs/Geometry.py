@@ -1,7 +1,7 @@
 import taichi as ti
 
-from ..utils.linalg import square_norm
-from ..utils.VectorFunction import Squared
+from ...utils.linalg import square_norm
+from ...utils.VectorFunction import Squared
 
 
 @ti.data_oriented

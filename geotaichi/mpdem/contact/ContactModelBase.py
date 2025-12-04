@@ -1,17 +1,17 @@
 import os
 import numpy as np
 
-from ..mpdem.contact.MultiLinkedCell import MultiLinkedCell
-from ..mpdem.Simulation import Simulation
+from .MultiLinkedCell import MultiLinkedCell
+from ..Simulation import Simulation
 from ..mpm.SceneManager import myScene as MPMScene
 from ..dem.structs.BaseStruct import CoupledContactTable, HistoryContactTable
 from ..dem.SceneManager import myScene as DEMScene
 from ..dem.contact.ContactKernel import *
 from ..mpm.SceneManager import myScene as MPMScene
-from ..utils.TypeDefination import u1
-from ..utils.ObjectIO import DictIO
-from ..utils.linalg import round32
-from ..utils.linalg import no_operation
+from ...utils.TypeDefination import u1
+from ...utils.ObjectIO import DictIO
+from ...utils.linalg import round32
+from ...utils.linalg import no_operation
 
 
 class ContactModelBase(object):

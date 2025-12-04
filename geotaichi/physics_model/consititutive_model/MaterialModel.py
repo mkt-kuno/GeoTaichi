@@ -2,11 +2,11 @@ import taichi as ti
 import numpy as np
 import os
 
-from ..physics_model.consititutive_model.infinitesimal_strain.MaterialKernel import *
-from ..utils import GlobalVariable as GlobalVariable
-from ..utils.MatrixFunction import trace, matrix_form
-from ..utils.VectorFunction import voigt_form, voigt_tensor_trace
-from ..utils.ObjectIO import DictIO
+from ...physics_model.consititutive_model.infinitesimal_strain.MaterialKernel import *
+from ...utils import GlobalVariable as GlobalVariable
+from ...utils.MatrixFunction import trace, matrix_form
+from ...utils.VectorFunction import voigt_form, voigt_tensor_trace
+from ...utils.ObjectIO import DictIO
 
 
 @ti.data_oriented

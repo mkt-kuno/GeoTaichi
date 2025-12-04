@@ -1,13 +1,13 @@
 import numpy as np
 
-from ..mpm.boundaries.BoundaryCore import *
-from ..mpm.BaseKernel import validate_particle_displacement_
-from ..mpm.engines.EngineKernel import *
-from ..mpm.Simulation import Simulation
-from ..mpm.SceneManager import myScene
-from ..mpm.SpatialHashGrid import SpatialHashGrid
-from ..utils.linalg import no_operation
-from ..mpm.engines.FreeSurfaceDetection import *
+from ..boundaries.BoundaryCore import *
+from ..BaseKernel import validate_particle_displacement_
+from .EngineKernel import *
+from ..Simulation import Simulation
+from ..SceneManager import myScene
+from ..SpatialHashGrid import SpatialHashGrid
+from ...utils.linalg import no_operation
+from .FreeSurfaceDetection import *
 
 
 class Engine(object):

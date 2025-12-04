@@ -1,16 +1,16 @@
 import taichi as ti
 import numpy as np
 
-from ..dem.contact.ContactKernel import *
-from ..dem.structs.BaseStruct import (HistoryRollingContactTable, HistoryRollingISContactTable, RollingContactTable, RollingISContactTable, DigitalRollingContactTable)
-from ..dem.contact.ContactModelBase import ContactModelBase
-from ..dem.neighbor.NeighborBase import NeighborBase
-from ..dem.SceneManager import myScene
-from ..dem.Simulation import Simulation
-from ..physics_model.contact_model.RollingModel import JiangRollingSurfaceProperty
-from ..utils.ObjectIO import DictIO
-from ..utils.linalg import round32
-from ..utils.TypeDefination import u1
+from .ContactKernel import *
+from ..structs.BaseStruct import (HistoryRollingContactTable, HistoryRollingISContactTable, RollingContactTable, RollingISContactTable, DigitalRollingContactTable)
+from .ContactModelBase import ContactModelBase
+from ..neighbor.NeighborBase import NeighborBase
+from ..SceneManager import myScene
+from ..Simulation import Simulation
+from ...physics_model.contact_model.RollingModel import JiangRollingSurfaceProperty
+from ...utils.ObjectIO import DictIO
+from ...utils.linalg import round32
+from ...utils.TypeDefination import u1
 
 
 # Refers to Jiang et. al (2015) A novel three-dimensional contact model for granulates incorporating rolling and twisting resistances. Computer and Geotechnics

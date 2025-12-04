@@ -2,12 +2,12 @@ import numpy as np
 import trimesh
 import os
 
-from ..dem.generator.InsertionKernel import *
-from ..dem.generator.GeneralShapeTemplate import GeneralShapeTemplate
-from ..dem.SceneManager import myScene
-from ..dem.Simulation import Simulation
-from ..utils.ObjectIO import DictIO
-from ..utils.TypeDefination import vec3f, vec3i
+from .InsertionKernel import *
+from .GeneralShapeTemplate import GeneralShapeTemplate
+from ..SceneManager import myScene
+from ..Simulation import Simulation
+from ...utils.ObjectIO import DictIO
+from ...utils.TypeDefination import vec3f, vec3i
 
 
 class ParticleReader(object):

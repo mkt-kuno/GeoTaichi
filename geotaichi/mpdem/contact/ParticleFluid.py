@@ -1,14 +1,14 @@
 import taichi as ti
 
-from ..physics_model.contact_model.LiquidContactModel import LiquidSurfaceProperty
+from ...physics_model.contact_model.LiquidContactModel import LiquidSurfaceProperty
 from ..dem.Simulation import Simulation as DEMSimulation
 from ..dem.SceneManager import myScene as DEMScene
 from ..dem.contact.ContactKernel import *
-from ..mpdem.contact.ContactModelBase import ContactModelBase
-from ..mpdem.contact.MultiLinkedCell import MultiLinkedCell
-from ..mpdem.Simulation import Simulation
+from .ContactModelBase import ContactModelBase
+from .MultiLinkedCell import MultiLinkedCell
+from ..Simulation import Simulation
 from ..mpm.SceneManager import myScene as MPMScene
-from ..utils.ObjectIO import DictIO
+from ...utils.ObjectIO import DictIO
 
 
 class ParticleFluid(ContactModelBase):

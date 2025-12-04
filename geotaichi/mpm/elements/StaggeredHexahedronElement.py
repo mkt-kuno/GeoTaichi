@@ -2,12 +2,12 @@ from itertools import product
 import taichi as ti
 import numpy as np
 
-from ..mpm.elements.HexahedronKernel import set_particle_characteristic_length_gimp
-from ..mpm.elements.ElementBase import ElementBase
-from ..mpm.Simulation import Simulation
-from ..utils.linalg import flip3d_linear
-from ..utils.ShapeFunctions import *
-from ..utils.TypeDefination import vec3f, vec3i
+from .HexahedronKernel import set_particle_characteristic_length_gimp
+from .ElementBase import ElementBase
+from ..Simulation import Simulation
+from ...utils.linalg import flip3d_linear
+from ...utils.ShapeFunctions import *
+from ...utils.TypeDefination import vec3f, vec3i
 
 
 Threshold = 1e-12

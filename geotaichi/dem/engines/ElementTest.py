@@ -1,10 +1,10 @@
-from ..dem.ContactManager import ContactManager
-from ..dem.engines.EngineKernel import *
-from ..dem.engines.ExplicitEngine import ExplicitEngine
-from ..dem.neighbor.NeighborBase import NeighborBase
-from ..dem.SceneManager import myScene
-from ..dem.Simulation import Simulation
-from ..utils.ObjectIO import DictIO
+from ..ContactManager import ContactManager
+from .EngineKernel import *
+from .ExplicitEngine import ExplicitEngine
+from ..neighbor.NeighborBase import NeighborBase
+from ..SceneManager import myScene
+from ..Simulation import Simulation
+from ...utils.ObjectIO import DictIO
 
 
 class ElementTest(ExplicitEngine):

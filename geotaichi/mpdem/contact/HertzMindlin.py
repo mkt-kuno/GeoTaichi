@@ -1,14 +1,14 @@
 import taichi as ti
 import numpy as np
 
-from ..physics_model.contact_model.HertzMindlinModel import HertzMindlinSurfaceProperty
+from ...physics_model.contact_model.HertzMindlinModel import HertzMindlinSurfaceProperty
 from ..dem.Simulation import Simulation as DEMSimulation
 from ..dem.SceneManager import myScene as DEMScene
 from ..dem.contact.ContactKernel import *
-from ..mpdem.contact.ContactModelBase import ContactModelBase
+from .ContactModelBase import ContactModelBase
 from ..mpm.SceneManager import myScene as MPMScene
-from ..utils.constants import PI
-from ..utils.ObjectIO import DictIO
+from ...utils.constants import PI
+from ...utils.ObjectIO import DictIO
 
 
 class HertzMindlinModel(ContactModelBase):

@@ -1,7 +1,7 @@
 import taichi as ti
 
-from ..utils.constants import Threshold
-from ..utils.TypeDefination import vec3i
+from ...utils.constants import Threshold
+from ...utils.TypeDefination import vec3i
 
 class BruteSearch(object):
     def __init__(self) -> None:

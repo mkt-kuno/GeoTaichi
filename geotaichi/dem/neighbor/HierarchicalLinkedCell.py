@@ -1,15 +1,15 @@
 import taichi as ti
 import numpy as np
 
-from ..dem.structs.BaseStruct import HierarchicalCell, HierarchicalBody
-from ..dem.neighbor.neighbor_kernel import *
-from ..dem.neighbor.NeighborBase import NeighborBase
-from ..dem.SceneManager import myScene
-from ..dem.Simulation import Simulation
-from ..utils.constants import Threshold
-from ..utils.PrefixSum import PrefixSumExecutor, serial
-from ..utils.TypeDefination import vec3i
-from ..utils.linalg import no_operation
+from ..structs.BaseStruct import HierarchicalCell, HierarchicalBody
+from .neighbor_kernel import *
+from .NeighborBase import NeighborBase
+from ..SceneManager import myScene
+from ..Simulation import Simulation
+from ...utils.constants import Threshold
+from ...utils.PrefixSum import PrefixSumExecutor, serial
+from ...utils.TypeDefination import vec3i
+from ...utils.linalg import no_operation
 
 
 class HierarchicalLinkedCell(NeighborBase):

@@ -1,8 +1,8 @@
 import numpy as np
 
-from ..sdf.BasicShape import BasicShape
-from ..dem.generator.Boundings import Boundings
-from ..utils.ObjectIO import DictIO
+from ...sdf.BasicShape import BasicShape
+from .Boundings import Boundings
+from ...utils.ObjectIO import DictIO
 
 
 class GeneralShapeTemplate(object):

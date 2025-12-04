@@ -5,9 +5,9 @@ from ..dem.SceneManager import myScene as DEMScene
 from ..dem.Simulation import Simulation as DEMSimulation
 from ..mpm.SceneManager import myScene as MPMScene
 from ..mpm.Simulation import Simulation as MPMSimulation
-from ..mpdem.Simulation import Simulation as Simulation
-from ..mpdem.fluid_dynamics.SemiResolved import *
-from ..mpdem.fluid_dynamics.DragForceModel import DragForce
+from ..Simulation import Simulation as Simulation
+from .SemiResolved import *
+from .DragForceModel import DragForce
 
 class CFDMPM:
     sims: Simulation

@@ -1,12 +1,12 @@
 import taichi as ti
 
-from ..dem.contact.ContactKernel import *
-from ..dem.contact.ContactModelBase import ContactModelBase
-from ..dem.SceneManager import myScene
-from ..physics_model.contact_model.EnergyConservingModel import PenaltyProperty
-from ..physics_model.contact_model.BarrierModel import BarrierProperty
-from ..utils.constants import ZEROVEC3f
-from ..utils.ObjectIO import DictIO
+from .ContactKernel import *
+from .ContactModelBase import ContactModelBase
+from ..SceneManager import myScene
+from ...physics_model.contact_model.EnergyConservingModel import PenaltyProperty
+from ...physics_model.contact_model.BarrierModel import BarrierProperty
+from ...utils.constants import ZEROVEC3f
+from ...utils.ObjectIO import DictIO
 
 
 class EnergyConservation(ContactModelBase):

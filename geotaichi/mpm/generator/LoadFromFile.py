@@ -1,14 +1,14 @@
 import numpy as np
 import os, types
 
-from ..mpm.generator.Generator import Generator
-from ..mpm.generator.InsertionKernel import *
-from ..mpm.Contact import DEMContact
-from ..mpm.SceneManager import myScene
-from ..mpm.Simulation import Simulation
-from ..utils.ObjectIO import DictIO
-from ..utils.RegionFunction import RegionFunction
-from ..utils.TypeDefination import vec2u8, vec3f
+from .Generator import Generator
+from .InsertionKernel import *
+from ..Contact import DEMContact
+from ..SceneManager import myScene
+from ..Simulation import Simulation
+from ...utils.ObjectIO import DictIO
+from ...utils.RegionFunction import RegionFunction
+from ...utils.TypeDefination import vec2u8, vec3f
 import trimesh as tm
 
 

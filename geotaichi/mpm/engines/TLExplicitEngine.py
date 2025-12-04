@@ -1,8 +1,8 @@
-from ..mpm.engines.ULExplicitEngine import ULExplicitEngine
-from ..mpm.engines.EngineKernel import *
-from ..mpm.SceneManager import myScene
-from ..mpm.Simulation import Simulation
-from ..mpm.SpatialHashGrid import SpatialHashGrid
+from .ULExplicitEngine import ULExplicitEngine
+from .EngineKernel import *
+from ..SceneManager import myScene
+from ..Simulation import Simulation
+from ..SpatialHashGrid import SpatialHashGrid
 
 
 class TLExplicitEngine(ULExplicitEngine):

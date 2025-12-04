@@ -7,12 +7,12 @@ from ..dem.Simulation import Simulation as DEMSimulation
 from ..dem.generator.GeneralShapeTemplate import GeneralShapeTemplate
 from ..mpm.SceneManager import myScene as MPMScene
 from ..mpm.Simulation import Simulation as MPMSimulation
-from ..utils.ObjectIO import DictIO
-from ..utils.sorting.ParallelSort import parallel_sort_with_value
-from ..utils.RegionFunction import RegionFunction
-from ..utils.TypeDefination import vec3f, vec3i
-from ..mesh.GaussPoint import GaussPointInTriangle
-from ..utils.Orientation import set_orientation
+from ...utils.ObjectIO import DictIO
+from ...utils.sorting.ParallelSort import parallel_sort_with_value
+from ...utils.RegionFunction import RegionFunction
+from ...utils.TypeDefination import vec3f, vec3i
+from ...mesh.GaussPoint import GaussPointInTriangle
+from ...utils.Orientation import set_orientation
 from third_party.pyevtk.hl import pointsToVTK
 
 

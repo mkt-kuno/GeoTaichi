@@ -1,9 +1,9 @@
 import taichi as ti
 import numpy as np
 
-from ..physics_model.consititutive_model.infinitesimal_strain.MaterialKernel import DpDsigma
-from ..utils.constants import PI
-from ..utils.ObjectIO import DictIO
+from ...physics_model.consititutive_model.infinitesimal_strain.MaterialKernel import DpDsigma
+from ...utils.constants import PI
+from ...utils.ObjectIO import DictIO
 
 
 @ti.data_oriented

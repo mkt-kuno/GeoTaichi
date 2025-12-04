@@ -1,10 +1,10 @@
 import taichi as ti
 
-from ..utils.constants import PI, ZEROMAT3x3, ZEROVEC3f
-from ..utils.MatrixFunction import get_eigenvalue
-from ..utils.ShapeFunctions import GGuassian, Guassian
-from ..utils.ScalarFunction import linearize3D
-from ..utils.VectorFunction import Normalize, Squared
+from ...utils.constants import PI, ZEROMAT3x3, ZEROVEC3f
+from ...utils.MatrixFunction import get_eigenvalue
+from ...utils.ShapeFunctions import GGuassian, Guassian
+from ...utils.ScalarFunction import linearize3D
+from ...utils.VectorFunction import Normalize, Squared
 
 
 @ti.kernel

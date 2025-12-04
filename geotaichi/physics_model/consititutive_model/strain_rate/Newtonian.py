@@ -1,10 +1,10 @@
 import taichi as ti
 
-from ..physics_model.consititutive_model.MaterialKernel import SphericalTensor
-from ..physics_model.consititutive_model.MaterialModel import Fluid
-from ..utils.constants import ZEROVEC6f, EYE
-from ..utils.ObjectIO import DictIO
-from ..utils.VectorFunction import voigt_tensor_trace
+from ...physics_model.consititutive_model.MaterialKernel import SphericalTensor
+from ...physics_model.consititutive_model.MaterialModel import Fluid
+from ...utils.constants import ZEROVEC6f, EYE
+from ...utils.ObjectIO import DictIO
+from ...utils.VectorFunction import voigt_tensor_trace
 
 
 @ti.data_oriented

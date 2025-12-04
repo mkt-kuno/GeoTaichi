@@ -1,8 +1,8 @@
 import taichi as ti
 
-from ..physics_model.consititutive_model.infinitesimal_strain.MaterialKernel import *
-from ..utils import GlobalVariable as GlobalVariable
-from ..physics_model.consititutive_model.MaterialModel import Solid
+from ...physics_model.consititutive_model.infinitesimal_strain.MaterialKernel import *
+from ...utils import GlobalVariable as GlobalVariable
+from ...physics_model.consititutive_model.MaterialModel import Solid
 
 
 @ti.data_oriented

@@ -1,12 +1,12 @@
 import numpy as np
 import types
 
-from ..mpm.generator.InsertionKernel import *
-from ..mpm.SceneManager import myScene
-from ..mpm.Simulation import Simulation
-from ..utils.ObjectIO import DictIO
-from ..utils.RegionFunction import RegionFunction
-from ..utils.TypeDefination import vec6f
+from .InsertionKernel import *
+from ..SceneManager import myScene
+from ..Simulation import Simulation
+from ...utils.ObjectIO import DictIO
+from ...utils.RegionFunction import RegionFunction
+from ...utils.TypeDefination import vec6f
 
 
 class Generator(object):

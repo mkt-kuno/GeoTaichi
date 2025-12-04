@@ -1,8 +1,8 @@
 import taichi as ti
 import math
 
-from ..utils.constants import Threshold
-from ..utils.TypeDefination import vec3i
+from ...utils.constants import Threshold
+from ...utils.TypeDefination import vec3i
 
 
 class LinkedCell(object):

@@ -1,12 +1,12 @@
 import numpy as np
 
-from ..dem.contact.ContactModelBase import ContactModelBase 
-from ..dem.ContactManager import ContactManager
-from ..dem.neighbor.NeighborBase import NeighborBase
-from ..dem.engines.EngineKernel import *
-from ..dem.SceneManager import myScene
-from ..dem.Simulation import Simulation
-from ..utils.linalg import no_operation
+from ..contact.ContactModelBase import ContactModelBase 
+from ..ContactManager import ContactManager
+from ..neighbor.NeighborBase import NeighborBase
+from .EngineKernel import *
+from ..SceneManager import myScene
+from ..Simulation import Simulation
+from ...utils.linalg import no_operation
 
 
 class ExplicitEngine(object):

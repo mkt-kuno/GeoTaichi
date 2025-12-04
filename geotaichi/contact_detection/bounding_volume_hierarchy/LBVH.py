@@ -1,9 +1,9 @@
 import taichi as ti
 
-from ..contact_detection.bounding_volume_hierarchy.BVH import Bvh
-from ..contact_detection.bounding_volume_hierarchy.SpatialDivision import SpatialDivision
-from ..utils.BitFunction import clz
-from ..utils.constants import DBL_MAX, MAX_PRIM, IS_LEAF
+from ...contact_detection.bounding_volume_hierarchy.BVH import Bvh
+from ...contact_detection.bounding_volume_hierarchy.SpatialDivision import SpatialDivision
+from ...utils.BitFunction import clz
+from ...utils.constants import DBL_MAX, MAX_PRIM, IS_LEAF
 
 
 @ti.data_oriented

@@ -1,7 +1,7 @@
 import taichi as ti
 
-from ..utils.TypeDefination import vec3i, vec3f
-from ..utils.Quaternion import SetToRotate
+from ...utils.TypeDefination import vec3i, vec3f
+from ...utils.Quaternion import SetToRotate
 
 
 @ti.kernel

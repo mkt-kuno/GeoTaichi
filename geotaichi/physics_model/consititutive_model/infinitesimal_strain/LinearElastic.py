@@ -1,9 +1,9 @@
 import taichi as ti
 
-from ..physics_model.consititutive_model.infinitesimal_strain.MaterialKernel import VonMisesStress
-from ..physics_model.consititutive_model.infinitesimal_strain.ElasPlasticity import ElasticMaterial
-from ..utils.ObjectIO import DictIO
-from ..utils import GlobalVariable as GlobalVariable
+from ...physics_model.consititutive_model.infinitesimal_strain.MaterialKernel import VonMisesStress
+from ...physics_model.consititutive_model.infinitesimal_strain.ElasPlasticity import ElasticMaterial
+from ...utils.ObjectIO import DictIO
+from ...utils import GlobalVariable as GlobalVariable
 
 
 @ti.data_oriented

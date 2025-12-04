@@ -1,11 +1,11 @@
 import taichi as ti
 
-from ..utils.constants import ZEROVEC3f
-from ..utils.Quaternion import SetDQ, SetToRotate, UpdateQAccurate
-from ..utils.ScalarFunction import PairingMapping, sgn
-from ..utils.TypeDefination import vec3f
-from ..utils.VectorFunction import SquaredLength, Squared, Normalize
-from ..utils import GlobalVariable
+from ...utils.constants import ZEROVEC3f
+from ...utils.Quaternion import SetDQ, SetToRotate, UpdateQAccurate
+from ...utils.ScalarFunction import PairingMapping, sgn
+from ...utils.TypeDefination import vec3f
+from ...utils.VectorFunction import SquaredLength, Squared, Normalize
+from ...utils import GlobalVariable
 
 
 @ti.kernel

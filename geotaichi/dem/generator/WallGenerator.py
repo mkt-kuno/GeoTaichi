@@ -1,13 +1,13 @@
 import os, warnings
 
-from ..dem.generator.InsertionKernel import *
-from ..dem.SceneManager import myScene
-from ..dem.Simulation import Simulation
-from ..utils.linalg import flip2d
-from ..utils.ObjectIO import DictIO
-from ..utils.PolygonDiscretization import *
-from ..utils.TypeDefination import vec3f
-from ..utils.linalg import transformation_matrix_direction, rotation_matrix_direction
+from .InsertionKernel import *
+from ..SceneManager import myScene
+from ..Simulation import Simulation
+from ...utils.linalg import flip2d
+from ...utils.ObjectIO import DictIO
+from ...utils.PolygonDiscretization import *
+from ...utils.TypeDefination import vec3f
+from ...utils.linalg import transformation_matrix_direction, rotation_matrix_direction
 from third_party.pyevtk.hl import unstructuredGridToVTK
 from third_party.pyevtk.vtk import VtkTriangle
 import trimesh as tm

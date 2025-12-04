@@ -1,12 +1,12 @@
 import taichi as ti
 
-from ..utils.constants import Threshold, ZEROVEC3f
-from ..utils.GeometryFunction import intersectionOBBs
-from ..utils.TypeDefination import vec3f, vec3i, vec2i, vec2f
-from ..utils.Quaternion import SetToRotate
-from ..utils.VectorFunction import SquaredLength, SquareLen
-from ..utils.ScalarFunction import linearize3D, vectorize_id, sgn
-from ..utils import GlobalVariable as GlobalVariable
+from ...utils.constants import Threshold, ZEROVEC3f
+from ...utils.GeometryFunction import intersectionOBBs
+from ...utils.TypeDefination import vec3f, vec3i, vec2i, vec2f
+from ...utils.Quaternion import SetToRotate
+from ...utils.VectorFunction import SquaredLength, SquareLen
+from ...utils.ScalarFunction import linearize3D, vectorize_id, sgn
+from ...utils import GlobalVariable as GlobalVariable
 
 
 @ti.kernel

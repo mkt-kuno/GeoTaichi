@@ -1,9 +1,9 @@
 import taichi as ti
 
-from ..utils.constants import PI, Threshold
-from ..utils.TypeDefination import vec3i
-from ..utils.ShapeFunctions import Guassian
-from ..utils.ScalarFunction import linearize3D, vectorize_id
+from ...utils.constants import PI, Threshold
+from ...utils.TypeDefination import vec3i
+from ...utils.ShapeFunctions import Guassian
+from ...utils.ScalarFunction import linearize3D, vectorize_id
 
 
 @ti.kernel

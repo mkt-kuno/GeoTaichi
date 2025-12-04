@@ -1,8 +1,8 @@
 import taichi as ti
 
-from ..utils.constants import ZEROVEC3f, Threshold
-from ..utils import GlobalVariable as GlobalVariable
-from ..utils.VectorFunction import Squared, Normalize
+from ...utils.constants import ZEROVEC3f, Threshold
+from ...utils import GlobalVariable as GlobalVariable
+from ...utils.VectorFunction import Squared, Normalize
 
 
 @ti.dataclass

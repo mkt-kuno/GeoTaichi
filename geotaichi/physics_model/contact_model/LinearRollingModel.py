@@ -1,8 +1,8 @@
 import taichi as ti
 
-from ..utils.constants import ZEROVEC3f, PI
-from ..utils import GlobalVariable as GlobalVariable
-from ..utils.VectorFunction import Normalize
+from ...utils.constants import ZEROVEC3f, PI
+from ...utils import GlobalVariable as GlobalVariable
+from ...utils.VectorFunction import Normalize
 
 
 @ti.dataclass

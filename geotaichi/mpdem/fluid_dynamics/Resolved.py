@@ -1,11 +1,11 @@
 import taichi as ti
 
-from ..utils.BitFunction import Zero2One
-from ..utils.constants import ZEROVEC3f, DBL_EPSILON
-from ..utils.TypeDefination import vec3f, vec3i
-from ..utils.ScalarFunction import linearize3D, vectorize_id
-from ..utils.VectorFunction import SquaredLength, inner_multiply, Squared
-from ..utils.Quaternion import SetToRotate
+from ...utils.BitFunction import Zero2One
+from ...utils.constants import ZEROVEC3f, DBL_EPSILON
+from ...utils.TypeDefination import vec3f, vec3i
+from ...utils.ScalarFunction import linearize3D, vectorize_id
+from ...utils.VectorFunction import SquaredLength, inner_multiply, Squared
+from ...utils.Quaternion import SetToRotate
 
 
 @ti.kernel

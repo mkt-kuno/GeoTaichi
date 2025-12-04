@@ -1,11 +1,11 @@
 import taichi as ti
 
-from ..utils.constants import Threshold
-from ..utils.TypeDefination import vec2f, vec3f, vec3i, vec2i
-from ..utils.VectorFunction import SquareLen
-from ..utils.ScalarFunction import linearize, vectorize_id, clamp
-from ..utils.ShapeFunctions import ShapeLinear, GShapeLinear, ShapeLinearCenter, ShapeGIMP, GShapeGIMP, ShapeGIMPCenter, ShapeBsplineQ, GShapeBsplineQ, ShapeBsplineC, GShapeBsplineC
-from ..utils import GlobalVariable as GlobalVariable
+from ...utils.constants import Threshold
+from ...utils.TypeDefination import vec2f, vec3f, vec3i, vec2i
+from ...utils.VectorFunction import SquareLen
+from ...utils.ScalarFunction import linearize, vectorize_id, clamp
+from ...utils.ShapeFunctions import ShapeLinear, GShapeLinear, ShapeLinearCenter, ShapeGIMP, GShapeGIMP, ShapeGIMPCenter, ShapeBsplineQ, GShapeBsplineQ, ShapeBsplineC, GShapeBsplineC
+from ...utils import GlobalVariable as GlobalVariable
 
 
 @ti.kernel

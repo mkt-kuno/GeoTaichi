@@ -1,6 +1,6 @@
 import taichi as ti
 
-from ..utils.TypeDefination import vec3f
+from ...utils.TypeDefination import vec3f
 
 
 # ========================== Constitutive Model Utility ========================== #

@@ -1,13 +1,13 @@
 import taichi as ti
 import numpy as np
 
-from ..physics_model.consititutive_model.infinitesimal_strain.MaterialKernel import *
-from ..physics_model.consititutive_model.SoftenModel import *
-from ..physics_model.consititutive_model.infinitesimal_strain.ElasPlasticity import PlasticMaterial
-from ..utils.constants import FTOL, Ftolerance, Gtolerance, itrstep, substep
-from ..utils.ObjectIO import DictIO
-from ..utils.VectorFunction import voigt_tensor_trace, voigt_tensor_dot
-from ..utils import GlobalVariable as GlobalVariable
+from ...physics_model.consititutive_model.infinitesimal_strain.MaterialKernel import *
+from ...physics_model.consititutive_model.SoftenModel import *
+from ...physics_model.consititutive_model.infinitesimal_strain.ElasPlasticity import PlasticMaterial
+from ...utils.constants import FTOL, Ftolerance, Gtolerance, itrstep, substep
+from ...utils.ObjectIO import DictIO
+from ...utils.VectorFunction import voigt_tensor_trace, voigt_tensor_dot
+from ...utils import GlobalVariable as GlobalVariable
 
 
 @ti.data_oriented

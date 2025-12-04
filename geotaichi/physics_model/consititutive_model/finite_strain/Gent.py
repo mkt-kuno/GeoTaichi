@@ -1,12 +1,12 @@
 import taichi as ti
 
-from ..physics_model.consititutive_model.finite_strain.MaterialKernel import *
-from ..physics_model.consititutive_model.finite_strain.FiniteStrainModel import FiniteStrainModel
-from ..utils.constants import ZEROMAT6x6
-from ..utils import GlobalVariable as GlobalVariable
-from ..utils.MatrixFunction import matrix_form
-from ..utils.TypeDefination import mat3x3
-from ..utils.ObjectIO import DictIO
+from ...physics_model.consititutive_model.finite_strain.MaterialKernel import *
+from ...physics_model.consititutive_model.finite_strain.FiniteStrainModel import FiniteStrainModel
+from ...utils.constants import ZEROMAT6x6
+from ...utils import GlobalVariable as GlobalVariable
+from ...utils.MatrixFunction import matrix_form
+from ...utils.TypeDefination import mat3x3
+from ...utils.ObjectIO import DictIO
 
 
 @ti.data_oriented

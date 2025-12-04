@@ -1,10 +1,10 @@
 import taichi as ti
 
-from ..physics_model.consititutive_model.MaterialKernel import calculate_vorticity_increment2D, calculate_vorticity_increment, \
+from ...physics_model.consititutive_model.MaterialKernel import calculate_vorticity_increment2D, calculate_vorticity_increment, \
                                                                  calculate_vorticity_rate2D, calculate_vorticity_rate
-from ..utils.constants import EYE, ZEROMAT3x3, ZEROVEC6f, ZEROMAT6x6, Threshold
-from ..utils.ScalarFunction import clamp
-from ..utils.TypeDefination import vec6f
+from ...utils.constants import EYE, ZEROMAT3x3, ZEROVEC6f, ZEROMAT6x6, Threshold
+from ...utils.ScalarFunction import clamp
+from ...utils.TypeDefination import vec6f
 
 # ================================================================================ #
 # Voigt Notation:                                                                  #

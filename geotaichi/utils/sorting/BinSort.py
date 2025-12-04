@@ -1,9 +1,9 @@
 import taichi as ti
 from functools import reduce
 
-from ..utils.PrefixSum import PrefixSumExecutor
-from ..utils.ScalarFunction import linearize
-from ..utils import GlobalVariable as GlobalVariable
+from ..PrefixSum import PrefixSumExecutor
+from ..ScalarFunction import linearize
+from .. import GlobalVariable as GlobalVariable
 
 
 class BinSort(object):

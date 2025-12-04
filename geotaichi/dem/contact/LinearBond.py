@@ -1,5 +1,5 @@
 import taichi as ti
-from ..dem.contact.Linear import ContactModelBase
+from .Linear import ContactModelBase
 
 
 class LinearBondModel(ContactModelBase):

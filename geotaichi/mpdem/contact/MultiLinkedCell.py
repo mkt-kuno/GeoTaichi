@@ -4,11 +4,11 @@ from ..dem.neighbor.neighbor_kernel import *
 from ..dem.neighbor.LinkedCell import LinkedCell
 from ..dem.SceneManager import myScene as DEMScene
 from ..dem.Simulation import Simulation as DEMSimulation
-from ..mpdem.Simulation import Simulation as DEMPMSimulation
+from ..Simulation import Simulation as DEMPMSimulation
 from ..mpm.SpatialHashGrid import SpatialHashGrid
 from ..mpm.SceneManager import myScene as MPMScene
 from ..mpm.Simulation import Simulation as MPMSimulation
-from ..utils.PrefixSum import PrefixSumExecutor
+from ...utils.PrefixSum import PrefixSumExecutor
 
 
 class MultiLinkedCell(object):

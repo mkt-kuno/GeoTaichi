@@ -1,9 +1,9 @@
 import taichi as ti
 
-from ..physics_model.consititutive_model.MaterialModel import Solid
-from ..utils.constants import DELTA, DELTA2D
-from ..utils.TypeDefination import vec3f
-from ..utils import GlobalVariable as GlobalVariable
+from ...physics_model.consititutive_model.MaterialModel import Solid
+from ...utils.constants import DELTA, DELTA2D
+from ...utils.TypeDefination import vec3f
+from ...utils import GlobalVariable as GlobalVariable
 
 
 @ti.data_oriented

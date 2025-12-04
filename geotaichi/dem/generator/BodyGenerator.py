@@ -4,19 +4,19 @@ import os
 import numpy as np
 import taichi as ti
 
-from ..dem.generator.BrustNeighbor import BruteSearch
-from ..dem.generator.InsertionKernel import *
-from ..dem.generator.LinkedCellNeighbor import LinkedCell
-from ..dem.generator.GeneralShapeTemplate import GeneralShapeTemplate
-from ..dem.generator.ClumpTemplate import ClumpTemplate
-from ..dem.SceneManager import myScene
-from ..dem.Simulation import Simulation
-from ..utils.ObjectIO import DictIO
-from ..utils.sorting.ParallelSort import parallel_sort_with_value
-from ..utils.RegionFunction import RegionFunction
-from ..utils.TypeDefination import vec3f, vec3i
-from ..utils.Orientation import set_orientation
-from ..mesh.TetraMesh import TetraMesh
+from .BrustNeighbor import BruteSearch
+from .InsertionKernel import *
+from .LinkedCellNeighbor import LinkedCell
+from .GeneralShapeTemplate import GeneralShapeTemplate
+from .ClumpTemplate import ClumpTemplate
+from ..SceneManager import myScene
+from ..Simulation import Simulation
+from ...utils.ObjectIO import DictIO
+from ...utils.sorting.ParallelSort import parallel_sort_with_value
+from ...utils.RegionFunction import RegionFunction
+from ...utils.TypeDefination import vec3f, vec3i
+from ...utils.Orientation import set_orientation
+from ...mesh.TetraMesh import TetraMesh
 from third_party.pyevtk.hl import pointsToVTK
 
 

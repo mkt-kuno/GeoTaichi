@@ -1,10 +1,10 @@
 import taichi as ti
 
-from ..utils.constants import PENALTY, BLOCK_SZ, Threshold
-from ..utils import GlobalVariable as GlobalVariable
-from ..utils.TypeDefination import vec2f, vec3f, vec4f, vec9f, vec2i, vec3i
-from ..utils.VectorFunction import summation
-from ..utils.ScalarFunction import linearize, vectorize_id
+from ...utils.constants import PENALTY, BLOCK_SZ, Threshold
+from ...utils import GlobalVariable as GlobalVariable
+from ...utils.TypeDefination import vec2f, vec3f, vec4f, vec9f, vec2i, vec3i
+from ...utils.VectorFunction import summation
+from ...utils.ScalarFunction import linearize, vectorize_id
 
 
 # ========================================================= #

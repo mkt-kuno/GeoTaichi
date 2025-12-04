@@ -1,9 +1,9 @@
 import taichi as ti
 import numpy as np
 
-from ..utils.constants import PI, Threshold, ZEROMAT3x3, ZEROVEC3f
-from ..utils.ObjectIO import DictIO
-from ..utils.TypeDefination import vec4f, vec3f
+from ...utils.constants import PI, Threshold, ZEROMAT3x3, ZEROVEC3f
+from ...utils.ObjectIO import DictIO
+from ...utils.TypeDefination import vec4f, vec3f
 from third_party.pyevtk.hl import pointsToVTK
 
 

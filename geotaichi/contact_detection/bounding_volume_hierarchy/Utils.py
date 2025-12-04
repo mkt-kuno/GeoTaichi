@@ -1,7 +1,7 @@
 import taichi as ti
 import math
 
-from ..utils.constants import PI, MThreshold
+from ...utils.constants import PI, MThreshold
 
 k_B               = 1.38064852e-23
 h                 = 6.62607015e-34

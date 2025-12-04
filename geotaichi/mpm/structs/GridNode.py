@@ -1,8 +1,8 @@
 import taichi as ti
 
-from ..utils.constants import ZEROVEC2f, ZEROVEC3f
-from ..utils.ScalarFunction import sign, sgn
-from ..utils.TypeDefination import vec2f, vec3f, mat3x2
+from ...utils.constants import ZEROVEC2f, ZEROVEC3f
+from ...utils.ScalarFunction import sign, sgn
+from ...utils.TypeDefination import vec2f, vec3f, mat3x2
 
 
 @ti.dataclass

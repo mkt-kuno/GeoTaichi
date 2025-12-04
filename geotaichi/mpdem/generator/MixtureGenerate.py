@@ -4,11 +4,11 @@ import math
 from ..dem.GenerateManager import GenerateManager as DEMGenerateManager
 from ..dem.Simulation import Simulation as DEMSimulation
 from ..dem.SceneManager import myScene as DEMScene
-from ..mpdem.Simulation import Simulation
-from ..mpdem.generator.GeneratorKernel import *
+from ..Simulation import Simulation
+from .GeneratorKernel import *
 from ..mpm.GenerateManager import GenerateManager as MPMGenerateManager
 from ..mpm.SceneManager import myScene as MPMScene
-from ..utils.TypeDefination import vec3i
+from ...utils.TypeDefination import vec3i
 
 
 class MixtureGenerator(object):

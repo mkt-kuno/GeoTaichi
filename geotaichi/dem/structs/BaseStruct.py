@@ -1,13 +1,13 @@
 import taichi as ti
 
-from ..utils.constants import PI, Threshold, ZEROVEC3f, ZEROMAT2x2, ZEROMAT3x9, ZEROMAT9x9, DBL_EPSILON
-from ..utils.GeometryFunction import SphereTriangleIntersectionArea, DistanceFromPointToTriangle
-from ..utils.MatrixFunction import LUinverse, get_eigenvalue
-from ..utils.ObjectIO import DictIO
-from ..utils.ScalarFunction import sgn, biInterpolate, linearize3D, sgn
-from ..utils.TypeDefination import vec3f, vec3u8, vec4f, vec3i, vec2f, vec2i, mat3x3, vec9f, vec6f
-from ..utils.VectorFunction import vsign
-from ..utils.BitFunction import Zero2OneVector
+from ...utils.constants import PI, Threshold, ZEROVEC3f, ZEROMAT2x2, ZEROMAT3x9, ZEROMAT9x9, DBL_EPSILON
+from ...utils.GeometryFunction import SphereTriangleIntersectionArea, DistanceFromPointToTriangle
+from ...utils.MatrixFunction import LUinverse, get_eigenvalue
+from ...utils.ObjectIO import DictIO
+from ...utils.ScalarFunction import sgn, biInterpolate, linearize3D, sgn
+from ...utils.TypeDefination import vec3f, vec3u8, vec4f, vec3i, vec2f, vec2i, mat3x3, vec9f, vec6f
+from ...utils.VectorFunction import vsign
+from ...utils.BitFunction import Zero2OneVector
 
 
 @ti.dataclass

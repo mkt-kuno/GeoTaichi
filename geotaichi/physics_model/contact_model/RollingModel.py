@@ -1,7 +1,7 @@
 import taichi as ti
 
-from ..utils.constants import ZEROVEC3f
-from ..utils.VectorFunction import Normalize
+from ...utils.constants import ZEROVEC3f
+from ...utils.VectorFunction import Normalize
 
 
 @ti.dataclass

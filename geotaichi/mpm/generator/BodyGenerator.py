@@ -2,16 +2,16 @@ import numpy as np
 import taichi as ti
 import os
 
-from ..mpm.generator.Generator import Generator
-from ..mpm.elements.ElementBase import ElementBase
-from ..mpm.elements.HexahedronKernel import transform_local_to_global
-from ..mpm.generator.InsertionKernel import *
-from ..mpm.SceneManager import myScene
-from ..mpm.Simulation import Simulation
-from ..mesh.GaussPoint import GaussPointInRectangle, GaussPointInTriangle
-from ..utils.ObjectIO import DictIO
-from ..utils.RegionFunction import RegionFunction
-from ..utils.TypeDefination import vec3f, vec6f, vec2u8, vec3u8, vec2f
+from .Generator import Generator
+from ..elements.ElementBase import ElementBase
+from ..elements.HexahedronKernel import transform_local_to_global
+from .InsertionKernel import *
+from ..SceneManager import myScene
+from ..Simulation import Simulation
+from ...mesh.GaussPoint import GaussPointInRectangle, GaussPointInTriangle
+from ...utils.ObjectIO import DictIO
+from ...utils.RegionFunction import RegionFunction
+from ...utils.TypeDefination import vec3f, vec6f, vec2u8, vec3u8, vec2f
 from third_party.pyevtk.hl import pointsToVTK
 
 

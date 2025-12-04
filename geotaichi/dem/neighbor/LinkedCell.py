@@ -1,14 +1,14 @@
 import taichi as ti
 import math
 
-from ..dem.neighbor.neighbor_kernel import *
-from ..dem.neighbor.NeighborBase import NeighborBase
-from ..dem.SceneManager import myScene
-from ..dem.Simulation import Simulation
-from ..utils.constants import Threshold
-from ..utils.linalg import no_operation
-from ..utils.PrefixSum import PrefixSumExecutor
-from ..utils.TypeDefination import vec3i
+from .neighbor_kernel import *
+from .NeighborBase import NeighborBase
+from ..SceneManager import myScene
+from ..Simulation import Simulation
+from ...utils.constants import Threshold
+from ...utils.linalg import no_operation
+from ...utils.PrefixSum import PrefixSumExecutor
+from ...utils.TypeDefination import vec3i
 
 
 class LinkedCell(NeighborBase):

@@ -1,12 +1,12 @@
 import taichi as ti
 import math
 
-from ..dem.contact.ContactKernel import *
-from ..dem.contact.ContactModelBase import ContactModelBase
-from ..dem.SceneManager import myScene
-from ..physics_model.contact_model.LinearModel import LinearSurfaceProperty
-from ..utils.ObjectIO import DictIO
-from ..utils import GlobalVariable as GlobalVariable
+from .ContactKernel import *
+from .ContactModelBase import ContactModelBase
+from ..SceneManager import myScene
+from ...physics_model.contact_model.LinearModel import LinearSurfaceProperty
+from ...utils.ObjectIO import DictIO
+from ...utils import GlobalVariable as GlobalVariable
 
 
 class LinearModel(ContactModelBase):

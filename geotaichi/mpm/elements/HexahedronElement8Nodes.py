@@ -3,17 +3,17 @@ from itertools import product
 import numpy as np
 import taichi as ti
 
-from ..mpm.elements.HexahedronKernel import *
-from ..mpm.structs import HexahedronGuassCell, HexahedronCell, ParticleCPDI, IncompressibleCell
-from ..mpm.elements.ElementBase import ElementBase
-from ..mpm.Simulation import Simulation
-from ..mesh.GaussPoint import GaussPointInRectangle
-from ..mesh.HexMesh import HexahedronMesh
-from ..utils.PrefixSum import PrefixSumExecutor
-from ..utils.linalg import round32
-from ..utils.ShapeFunctions import *
-from ..utils.TypeDefination import u1, vec3f, vec3i
-from ..utils import GlobalVariable as GlobalVariable
+from .HexahedronKernel import *
+from ..structs import HexahedronGuassCell, HexahedronCell, ParticleCPDI, IncompressibleCell
+from .ElementBase import ElementBase
+from ..Simulation import Simulation
+from ...mesh.GaussPoint import GaussPointInRectangle
+from ...mesh.HexMesh import HexahedronMesh
+from ...utils.PrefixSum import PrefixSumExecutor
+from ...utils.linalg import round32
+from ...utils.ShapeFunctions import *
+from ...utils.TypeDefination import u1, vec3f, vec3i
+from ...utils import GlobalVariable as GlobalVariable
 
 
 Threshold = 1e-12

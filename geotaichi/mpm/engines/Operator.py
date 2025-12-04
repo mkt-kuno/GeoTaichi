@@ -1,7 +1,7 @@
 
-from ..linear_solver.LinearOperator import LinearOperator
-from ..mpm.SceneManager import myScene
-from ..mpm.engines.AssembleMatrixKernel import *
+from ...linear_solver.LinearOperator import LinearOperator
+from ..SceneManager import myScene
+from .AssembleMatrixKernel import *
 
 
 class MomentBalanceDynamicOperator(LinearOperator):

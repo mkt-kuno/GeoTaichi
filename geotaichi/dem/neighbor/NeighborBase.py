@@ -1,10 +1,10 @@
 import taichi as ti
 
-from ..dem.structs.BaseStruct import VerletContactTable
-from ..dem.Simulation import Simulation
-from ..dem.SceneManager import myScene
-from ..dem.neighbor.neighbor_kernel import *
-from ..utils.linalg import no_operation
+from ..structs.BaseStruct import VerletContactTable
+from ..Simulation import Simulation
+from ..SceneManager import myScene
+from .neighbor_kernel import *
+from ...utils.linalg import no_operation
 
 
 class NeighborBase(object):

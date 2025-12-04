@@ -1,11 +1,11 @@
 import taichi as ti
 
-from ..utils.constants import ZEROVEC3f, Threshold
-from ..utils.Quaternion import SetToRotate
-from ..utils.ScalarFunction import PairingMapping, EffectiveValue
-from ..utils.TypeDefination import vec3f
-from ..utils.VectorFunction import equal, coord_local2global, global2local, Squared
-from ..utils import GlobalVariable
+from ...utils.constants import ZEROVEC3f, Threshold
+from ...utils.Quaternion import SetToRotate
+from ...utils.ScalarFunction import PairingMapping, EffectiveValue
+from ...utils.TypeDefination import vec3f
+from ...utils.VectorFunction import equal, coord_local2global, global2local, Squared
+from ...utils import GlobalVariable
 
 
 @ti.kernel

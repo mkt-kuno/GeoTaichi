@@ -1,6 +1,6 @@
 import warp as wp
 
-from ..contact_detection.bounding_volume_hierarchy.AABB import AABB
+from ...contact_detection.bounding_volume_hierarchy.AABB import AABB
 
 
 class BVH:

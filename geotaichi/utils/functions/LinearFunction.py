@@ -1,6 +1,6 @@
 import taichi as ti
 
-from ..utils.ObjectIO import DictIO
+from ..ObjectIO import DictIO
 
 
 @ti.dataclass

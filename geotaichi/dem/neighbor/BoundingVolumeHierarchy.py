@@ -1,9 +1,9 @@
-from ..dem.neighbor.neighbor_kernel import *
-from ..contact_detection.bounding_volume_hierarchy.MultiPatchLBVH import LBVH
-from ..dem.neighbor.NeighborBase import NeighborBase
-from ..dem.SceneManager import myScene
-from ..utils.PrefixSum import PrefixSumExecutor
-from ..utils.linalg import no_operation
+from .neighbor_kernel import *
+from ...contact_detection.bounding_volume_hierarchy.MultiPatchLBVH import LBVH
+from .NeighborBase import NeighborBase
+from ..SceneManager import myScene
+from ...utils.PrefixSum import PrefixSumExecutor
+from ...utils.linalg import no_operation
 
 
 class BoundingVolumeHierarchy(NeighborBase):

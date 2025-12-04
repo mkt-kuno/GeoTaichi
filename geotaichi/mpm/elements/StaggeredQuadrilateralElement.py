@@ -2,12 +2,12 @@ from itertools import product
 import taichi as ti
 import numpy as np
 
-from ..mpm.elements.QuadrilateralKernel import set_particle_characteristic_length_gimp
-from ..mpm.elements.ElementBase import ElementBase
-from ..mpm.Simulation import Simulation
-from ..utils.linalg import flip3d_linear, flip2d_linear
-from ..utils.ShapeFunctions import *
-from ..utils.TypeDefination import vec2f, vec2i
+from .QuadrilateralKernel import set_particle_characteristic_length_gimp
+from .ElementBase import ElementBase
+from ..Simulation import Simulation
+from ...utils.linalg import flip3d_linear, flip2d_linear
+from ...utils.ShapeFunctions import *
+from ...utils.TypeDefination import vec2f, vec2i
 
 
 Threshold = 1e-12

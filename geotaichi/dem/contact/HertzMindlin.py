@@ -1,12 +1,12 @@
 import taichi as ti
 
-from ..dem.contact.ContactKernel import *
-from ..dem.contact.ContactModelBase import ContactModelBase
-from ..dem.SceneManager import myScene
-from ..physics_model.contact_model.HertzMindlinModel import HertzMindlinSurfaceProperty
-from ..utils.constants import PI
-from ..utils.ObjectIO import DictIO
-from ..utils import GlobalVariable as GlobalVariable
+from .ContactKernel import *
+from .ContactModelBase import ContactModelBase
+from ..SceneManager import myScene
+from ...physics_model.contact_model.HertzMindlinModel import HertzMindlinSurfaceProperty
+from ...utils.constants import PI
+from ...utils.ObjectIO import DictIO
+from ...utils import GlobalVariable as GlobalVariable
 
 
 class HertzMindlinModel(ContactModelBase):

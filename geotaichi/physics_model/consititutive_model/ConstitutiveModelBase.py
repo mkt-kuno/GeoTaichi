@@ -1,8 +1,8 @@
 import numpy as np
 
-from ..physics_model.consititutive_model.MaterialKernel import kernel_initial_state_variables, compute_stiffness_matrix
-from ..utils.ListWrapper import ListWrapper
-from ..utils.linalg import get_dataclass_to_dict
+from ...physics_model.consititutive_model.MaterialKernel import kernel_initial_state_variables, compute_stiffness_matrix
+from ...utils.ListWrapper import ListWrapper
+from ...utils.linalg import get_dataclass_to_dict
 
 
 class ConstitutiveBase:

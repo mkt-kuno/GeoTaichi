@@ -1,9 +1,9 @@
-from ..mpm.boundaries.BoundaryCore import *
-from ..mpm.engines.Engine import Engine
-from ..mpm.engines.EngineKernel import *
-from ..mpm.SceneManager import myScene
-from ..mpm.Simulation import Simulation
-from ..mpm.SpatialHashGrid import SpatialHashGrid
+from ..boundaries.BoundaryCore import *
+from .Engine import Engine
+from .EngineKernel import *
+from ..SceneManager import myScene
+from ..Simulation import Simulation
+from ..SpatialHashGrid import SpatialHashGrid
 
 @ti.data_oriented
 class ULExplicitEngine(Engine):

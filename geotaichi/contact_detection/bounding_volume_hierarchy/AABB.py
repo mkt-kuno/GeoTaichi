@@ -1,7 +1,7 @@
 import taichi as ti
 
-from ..utils.linalg import make_list
-from ..utils.TypeDefination import vec3f, vec4f
+from ...utils.linalg import make_list
+from ...utils.TypeDefination import vec3f, vec4f
 
 
 @ti.data_oriented

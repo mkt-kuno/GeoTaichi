@@ -1,6 +1,6 @@
 import taichi as ti
 
-from ..utils.constants import IS_LEAF, MAX_PRIM, DBL_MAX
+from ...utils.constants import IS_LEAF, MAX_PRIM, DBL_MAX
 
 #            0                  | 1         | 2             | 3             | 4             |5          |6      |9      | 
 #            32bit              | 32bit     | 32bit         | 32bit         | 32bit         |32bit      |96bit  |96bit 

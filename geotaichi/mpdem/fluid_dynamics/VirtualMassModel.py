@@ -1,6 +1,6 @@
 import taichi as ti
 
-from ..utils.constants import PI
+from ...utils.constants import PI
 
 
 @ti.data_oriented

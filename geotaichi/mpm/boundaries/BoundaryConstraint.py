@@ -1,13 +1,13 @@
 import os, warnings
 import numpy as np
 
-from ..mpm.boundaries.BoundaryCore import *
-from ..mpm.boundaries.BoundaryStrcut import *
-from ..mpm.elements.ElementBase import ElementBase
-from ..mpm.Simulation import Simulation
-from ..utils.ObjectIO import DictIO
-from ..utils.TypeDefination import vec3i
-from ..utils.RegionFunction import RegionFunction
+from .BoundaryCore import *
+from .BoundaryStrcut import *
+from ..elements.ElementBase import ElementBase
+from ..Simulation import Simulation
+from ...utils.ObjectIO import DictIO
+from ...utils.TypeDefination import vec3i
+from ...utils.RegionFunction import RegionFunction
 
 
 class BoundaryConstraints(object):

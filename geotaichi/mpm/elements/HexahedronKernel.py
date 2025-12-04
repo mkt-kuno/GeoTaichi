@@ -1,10 +1,10 @@
 import taichi as ti
 
-from ..utils.constants import ZEROMAT3x3, ZEROVEC3f, Threshold
-from ..utils.ShapeFunctions import local_linear_shapefn
-from ..utils.ScalarFunction import linearize3D, vectorize_id, linearize
-from ..utils.TypeDefination import vec3f, vec3i, vec3u8, vec2f
-from ..utils import GlobalVariable as GlobalVariable
+from ...utils.constants import ZEROMAT3x3, ZEROVEC3f, Threshold
+from ...utils.ShapeFunctions import local_linear_shapefn
+from ...utils.ScalarFunction import linearize3D, vectorize_id, linearize
+from ...utils.TypeDefination import vec3f, vec3i, vec3u8, vec2f
+from ...utils import GlobalVariable as GlobalVariable
 
 @ti.func
 def set_connectivity(cell_id, gnum, node_connectivity):

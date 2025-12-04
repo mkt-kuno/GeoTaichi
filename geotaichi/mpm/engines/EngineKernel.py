@@ -1,14 +1,14 @@
 import taichi as ti
 
-from ..physics_model.consititutive_model.MaterialKernel import get_angular_velocity
-from ..utils.constants import Threshold, ZEROMAT4x4, ZEROMAT6x3, ZEROVEC2f, ZEROVEC3f, ZEROMAT2x2, ZEROMAT3x3, DELTA2D, DELTA, EYE
-from ..utils.MatrixFunction import truncation, trace
-from ..utils.ScalarFunction import vectorize_id, linearize, sgn
-from ..utils.ShapeFunctions import ShapeLinear, GShapeLinear, ShapeLinearCenter, ShapeGIMP, GShapeGIMP, ShapeGIMPCenter, ShapeBsplineQ, GShapeBsplineQ, ShapeBsplineC, GShapeBsplineC
-from ..utils.Quaternion import SetDQ, SetToRotate
-from ..utils.TypeDefination import vec2f, vec3f, vec4f, vec6f, vec12f, mat3x3, mat4x4, vec2i, vec3i, mat2x2
-from ..utils.VectorFunction import Normalize, outer_product, MeanValue, Squared, outer_product2D, dot2
-from ..utils import GlobalVariable as GlobalVariable
+from ...physics_model.consititutive_model.MaterialKernel import get_angular_velocity
+from ...utils.constants import Threshold, ZEROMAT4x4, ZEROMAT6x3, ZEROVEC2f, ZEROVEC3f, ZEROMAT2x2, ZEROMAT3x3, DELTA2D, DELTA, EYE
+from ...utils.MatrixFunction import truncation, trace
+from ...utils.ScalarFunction import vectorize_id, linearize, sgn
+from ...utils.ShapeFunctions import ShapeLinear, GShapeLinear, ShapeLinearCenter, ShapeGIMP, GShapeGIMP, ShapeGIMPCenter, ShapeBsplineQ, GShapeBsplineQ, ShapeBsplineC, GShapeBsplineC
+from ...utils.Quaternion import SetDQ, SetToRotate
+from ...utils.TypeDefination import vec2f, vec3f, vec4f, vec6f, vec12f, mat3x3, mat4x4, vec2i, vec3i, mat2x2
+from ...utils.VectorFunction import Normalize, outer_product, MeanValue, Squared, outer_product2D, dot2
+from ...utils import GlobalVariable as GlobalVariable
 
 
 @ti.func

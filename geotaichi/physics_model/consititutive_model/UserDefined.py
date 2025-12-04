@@ -1,6 +1,6 @@
 import taichi as ti
 
-from ..physics_model.consititutive_model.MaterialModel import MaterialModel
+from ...physics_model.consititutive_model.MaterialModel import MaterialModel
 
 
 @ti.data_oriented

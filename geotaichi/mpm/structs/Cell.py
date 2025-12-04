@@ -1,7 +1,7 @@
 import taichi as ti
 
-from ..utils.constants import ZEROVEC6f
-from ..utils.TypeDefination import vec6f
+from ...utils.constants import ZEROVEC6f
+from ...utils.TypeDefination import vec6f
 
 
 @ti.dataclass

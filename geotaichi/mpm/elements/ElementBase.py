@@ -1,8 +1,8 @@
 import taichi as ti
 
-from ..mpm.Simulation import Simulation
-from ..utils.TypeDefination import u1
-from ..utils.linalg import round32
+from ..Simulation import Simulation
+from ...utils.TypeDefination import u1
+from ...utils.linalg import round32
 
 
 class ElementBase(object):

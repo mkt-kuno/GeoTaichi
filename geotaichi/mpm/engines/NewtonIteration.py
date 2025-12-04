@@ -1,12 +1,12 @@
 import taichi as ti
 
-from ..mpm.Simulation import Simulation
-from ..mpm.SceneManager import myScene
-from ..mpm.engines.AssembleMatrixKernel import *
-from ..mpm.engines.Operator import MomentBalanceDynamicOperator
-from ..linear_solver.CompressedSparseRow import CompressedSparseRow
-from ..linear_solver.MatrixFreePCG import MatrixFreePCG
-from ..utils.linalg import no_operation
+from ..Simulation import Simulation
+from ..SceneManager import myScene
+from .AssembleMatrixKernel import *
+from .Operator import MomentBalanceDynamicOperator
+from ...linear_solver.CompressedSparseRow import CompressedSparseRow
+from ...linear_solver.MatrixFreePCG import MatrixFreePCG
+from ...utils.linalg import no_operation
 
 
 class MomentumConservation(object):

@@ -1,8 +1,8 @@
 import taichi as ti
 
-from ..utils.constants import DBL_EPSILON
-from ..utils.TypeDefination import vec2f, vec3f, vec6f, vec3u8, mat3x3
-from ..utils.Quaternion import ThetaToRotationMatrix, ThetaToRotationMatrix2D
+from ...utils.constants import DBL_EPSILON
+from ...utils.TypeDefination import vec2f, vec3f, vec6f, vec3u8, mat3x3
+from ...utils.Quaternion import ThetaToRotationMatrix, ThetaToRotationMatrix2D
 
 
 @ti.kernel

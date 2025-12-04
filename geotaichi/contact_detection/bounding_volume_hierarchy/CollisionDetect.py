@@ -1,7 +1,7 @@
 import taichi as ti
 
-from ..contact_detection.bounding_volume_hierarchy.LBVH import LBvh
-from ..utils.constants import DBL_MAX
+from ...contact_detection.bounding_volume_hierarchy.LBVH import LBvh
+from ...utils.constants import DBL_MAX
 
 
 @ti.data_oriented

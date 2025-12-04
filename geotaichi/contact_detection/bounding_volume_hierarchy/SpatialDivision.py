@@ -1,8 +1,8 @@
 import taichi as ti
 
-from ..contact_detection.bounding_volume_hierarchy.AABB import AABB
-from ..utils.BitFunction import morton3d32
-from ..utils.sorting.RadixSort import RadixSort
+from ...contact_detection.bounding_volume_hierarchy.AABB import AABB
+from ...utils.BitFunction import morton3d32
+from ...utils.sorting.RadixSort import RadixSort
 
 
 @ti.data_oriented
