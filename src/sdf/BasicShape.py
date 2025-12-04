@@ -18,7 +18,8 @@ from src.sdf.FastMarchingMethod import FastMarchingMethod
 from src.utils.linalg import (heaviside_function, transformation_matrix_coordinate_system, generate_grid)
 from src.utils.Root import newton
 import trimesh as tm
-from trimesh.interfaces import gmsh
+# Lazy import for gmsh - only needed for tetrahedization method
+# from trimesh.interfaces import gmsh
 from third_party.pyevtk.hl import unstructuredGridToVTK, gridToVTK
 from third_party.pyevtk.vtk import VtkTriangle, VtkQuad
 
@@ -580,6 +581,14 @@ class BasicShape(object):
 
     def tetrahedization(self, max_length=None, algorithm=1, refine_number=0):
         if self.tetramesh is None:
+            try:
+                from trimesh.interfaces import gmsh
+            except ImportError:
+                raise ImportError(
+                    "gmsh interface is not available in this version of trimesh. "
+                    "The tetrahedization method requires an older version of trimesh with gmsh support, "
+                    "or you need to install gmsh separately."
+                )
             gmsh.to_volume(self.mesh, "tetraObject.msh", max_length, algorithm, refine_number)
             self.tetramesh = meshio.read("tetraObject.msh")
 

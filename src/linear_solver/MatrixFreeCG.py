@@ -16,12 +16,16 @@ class MatrixFreeCG(object):
         ti.root.dense(ti.i, int(length)).place(self.p, self.r, self.Ap, self.Ax)
         self.scalar_rest()
 
-        if current_cfg().arch == ti.cuda:
+        # Check if using a GPU-like backend (CUDA, Vulkan, Metal, or generic GPU)
+        arch = current_cfg().arch
+        is_gpu = arch in (ti.cuda, ti.vulkan, ti.metal, ti.gpu)
+        
+        if is_gpu:
             self.reduce = reduce_shared
-        elif current_cfg().arch == ti.cpu:
+        elif arch == ti.cpu:
             self.reduce = reduce_atomic
         else:
-            raise RuntimeError(f"{str(current_cfg().arch)} is not supported for preconditioned bi-conjuction gradient.")
+            raise RuntimeError(f"{str(arch)} is not supported for preconditioned bi-conjugate gradient.")
 
     def scalar_rest(self):
         self.alpha = 0.

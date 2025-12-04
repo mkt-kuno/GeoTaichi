@@ -29,19 +29,23 @@ class RadixSort(object):
             self.offset = ti.field(ti.u32, shape=input_len)
             self.run = self.radix_sort_general
         else:
-            if current_cfg().arch == ti.cuda:
+            # Check if using a GPU-like backend (CUDA, Vulkan, Metal, or generic GPU)
+            arch = current_cfg().arch
+            is_gpu = arch in (ti.cuda, ti.vulkan, ti.metal, ti.gpu)
+            
+            if is_gpu:
                 self.grid_sz = int(input_len / BLOCK_SZ) if input_len % BLOCK_SZ == 0 else int(input_len / BLOCK_SZ) + 1
                 self.pse = PrefixSumExecutor(4 * self.grid_sz, dtype=ti.i32)
                 self.prefix_sums = ti.field(dtype, shape=input_len)
                 self.block_sums = ti.field(dtype, shape=self.pse.get_length())
                 self.run = self.radix_sort_gpu
-            elif current_cfg().arch == ti.cpu:
+            elif arch == ti.cpu:
                 self.pse = PrefixSumExecutor(input_len + 1)
                 self.radix_offset0 = ti.field(dtype, shape=self.pse.get_length())
                 self.radix_offset1 = ti.field(dtype, shape=self.pse.get_length())
                 self.run = self.radix_sort_cpu
             else:
-                raise RuntimeError(f"{str(current_cfg().arch)} is not supported for radix sort.")
+                raise RuntimeError(f"{str(arch)} is not supported for radix sort.")
             
     def radix_sort_general(self, input_len):
         self.general_radix_sort(input_len, self.hist, self.prefix_sum, self.offset, self.data_out, self.data_in)

@@ -28,7 +28,11 @@ class PrefixSumExecutor:
 
     def initialize(self, length):
         length = make_list(length)
-        if current_cfg().arch == ti.cuda:
+        # Check if using a GPU-like backend (CUDA, Vulkan, Metal, or generic GPU)
+        arch = current_cfg().arch
+        is_gpu = arch in (ti.cuda, ti.vulkan, ti.metal, ti.gpu)
+        
+        if is_gpu:
             self.run = self.runGPU
             self.ele_nums = []
             self.ele_nums_pos = []
@@ -52,7 +56,7 @@ class PrefixSumExecutor:
                 else:
                     self.array_length.append(length[l])
                     self.run = no_operation
-        elif current_cfg().arch == ti.cpu:
+        elif arch == ti.cpu:
             self.run = self.runCPU
             self.npad = []
             for l in range(self.level):
@@ -64,7 +68,7 @@ class PrefixSumExecutor:
                     self.array_length.append(length[l])
                     self.run = no_operation
         else:
-            raise RuntimeError(f"{str(current_cfg().arch)} is not supported for prefix sum.")
+            raise RuntimeError(f"{str(arch)} is not supported for prefix sum.")
 
     def get_length(self, level=0):
         return self.array_length[level]

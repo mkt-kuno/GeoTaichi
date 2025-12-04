@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "geotaichi"
+version = "0.1.0"
+description = "A High Performance Multiscale and Multiphysics Simulator"
+readme = "README.md"
+authors = [
+    {name = "Shi-Yihao, Guo-Ning"}
+]
+license = {text = "GPL-3.0"}
+requires-python = ">=3.9,<3.13"
+dependencies = [
+    "taichi>=1.7.2,<1.8.0",
+    "scipy",
+    "trimesh",
+    "imageio",
+    "matplotlib",
+    "psutil",
+    "pynvml>=11.4.1",
+    "shapely>=1.8",
+    "meshio",
+    "rtree",
+    "scikit-image",
+    "open3d",
+    "numpy",
+    "gmsh",
+]
+
+[project.urls]
+Homepage = "https://github.com/Yihao-Shi/GeoTaichi"
+Repository = "https://github.com/Yihao-Shi/GeoTaichi"
+
+[tool.setuptools.packages.find]
+include = ["geotaichi*", "src*", "third_party*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.so", "*.dll", "*.dylib"]
+
+[tool.pyright]
+reportInvalidTypeForm = false
