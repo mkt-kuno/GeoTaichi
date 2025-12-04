@@ -73,7 +73,7 @@ def init(dim=3, arch="gpu", cpu_max_num_threads=0, offline_cache=True, debug=Fal
     """
     Initializes the Taichi runtime environment.
     Args:
-        arch (str): The execution architecture. Can be either "cpu" or "gpu".
+        arch (str): The execution architecture. Can be either "cpu", "gpu", or "vulkan".
         cpu_max_num_threads (int): The maximum number of threads to use if the backend is CPU. Defaults to the maximum number of threads available on the CPU.
         offline_cache (bool): Whether to store compiled files. Defaults to True.
         debug (bool): Whether to enable debug mode.
@@ -85,7 +85,7 @@ def init(dim=3, arch="gpu", cpu_max_num_threads=0, offline_cache=True, debug=Fal
         log (bool): Whether to enable logging.
     初始化函数, 用于设置Taichi的运行环境。
     参数:
-    arch: 运行架构，可选 "cpu" 或 "gpu"。
+    arch: 运行架构，可选 "cpu"、 "gpu" 或 "vulkan"。
     cpu_max_num_threads: 若运行后端为CPU, CPU最大线程数, 默认值为该CPU最大的线程数。
     offline_cache: 选择是否储存编译后的文件, 默认值为True。
     debug: 是否启用调试模式。
@@ -141,8 +141,15 @@ def init(dim=3, arch="gpu", cpu_max_num_threads=0, offline_cache=True, debug=Fal
             elif not device_memory_fraction is None:
                 device_memory_GB = min(device_memory_fraction, bytes_to_GB(gpu_memory.free) / bytes_to_GB(gpu_memory.total))
                 ti.init(arch=ti.gpu, offline_cache=offline_cache, device_memory_fraction=device_memory_fraction, debug=debug, default_fp=default_fp, default_ip=default_ip, kernel_profiler=kernel_profiler, log_level=ti.ERROR)
+    elif arch == "vulkan":
+        print("Using Vulkan backend.")
+        # For Vulkan, set default GPU memory to 4GB as requested
+        if device_memory_GB is None:
+            device_memory_GB = 4.0
+        print(f"Vulkan backend initialized with {device_memory_GB}GB memory allocation.")
+        ti.init(arch=ti.vulkan, offline_cache=offline_cache, device_memory_GB=device_memory_GB, debug=debug, default_fp=default_fp, default_ip=default_ip, kernel_profiler=kernel_profiler, log_level=ti.ERROR)
     else:
-        raise RuntimeError("arch is not recognized, please choose in the following: ['cpu', 'gpu']")
+        raise RuntimeError("arch is not recognized, please choose in the following: ['cpu', 'gpu', 'vulkan']")
         
     if log:
         make_print_to_file()
