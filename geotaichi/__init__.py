@@ -169,13 +169,20 @@ def init(dim=3, arch="gpu", cpu_max_num_threads=0, offline_cache=True, debug=Fal
             print("Using GPU on macOS (Metal backend).")
             ti.init(arch=ti.metal, offline_cache=offline_cache, debug=debug, default_fp=default_fp, default_ip=default_ip, kernel_profiler=kernel_profiler, log_level=ti.ERROR)
         else:
-            import pynvml
-            pynvml.nvmlInit()
-            handle = pynvml.nvmlDeviceGetHandleByIndex(0)
-            gpu_name = pynvml.nvmlDeviceGetName(handle=handle)
-            gpu_memory = pynvml.nvmlDeviceGetMemoryInfo(handle=handle)
-            pynvml.nvmlShutdown()
-            print(f"Using device {gpu_name} (Total: {bytes_to_GB(gpu_memory.total)}GB, Available: {bytes_to_GB(gpu_memory.free)}GB)")
+            try:
+                import pynvml
+                pynvml.nvmlInit()
+                handle = pynvml.nvmlDeviceGetHandleByIndex(0)
+                gpu_name = pynvml.nvmlDeviceGetName(handle=handle)
+                gpu_memory = pynvml.nvmlDeviceGetMemoryInfo(handle=handle)
+                pynvml.nvmlShutdown()
+                print(f"Using device {gpu_name} (Total: {bytes_to_GB(gpu_memory.total)}GB, Available: {bytes_to_GB(gpu_memory.free)}GB)")
+            except ImportError:
+                print("Warning: pynvml not installed. Install with: pip install 'geotaichi[gpu]'")
+                print("Continuing without GPU memory info...")
+            except Exception as e:
+                print(f"Warning: Could not query GPU info: {e}")
+                print("Continuing anyway...")
 
             if device_memory_GB is None and device_memory_fraction is None:
                 ti.init(arch=ti.gpu, offline_cache=offline_cache, debug=debug, default_fp=default_fp, default_ip=default_ip, kernel_profiler=kernel_profiler, log_level=ti.ERROR)

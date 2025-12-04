@@ -190,9 +190,10 @@ set PYTHONPATH=%PYTHONPATH%;%CD%
 - **Solution (macOS):** `brew install spatialindex`
 
 **Issue 6: GPU support**
-- NVIDIA GPU support requires CUDA toolkit installation
-- See [CUDA Installation Guide](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
-- macOS uses Metal backend automatically (no CUDA needed)
+- **NVIDIA GPU**: Install with `pip install -e ".[gpu]"` to include pynvml for GPU memory monitoring
+- `pynvml` is optional and only needed for NVIDIA GPU support on Linux/Windows
+- macOS: Uses Metal backend automatically (no pynvml needed, no CUDA support)
+- See [CUDA Installation Guide](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html) for NVIDIA GPU setup
 
 ### Verifying Installation
 
@@ -220,6 +221,8 @@ If you encounter import errors:
 
 2. **CUDA/GPU errors:**
    - Verify CUDA installation: `nvidia-smi`
+   - For NVIDIA GPU support, install: `pip install -e ".[gpu]"` (includes pynvml)
+   - macOS users: Use CPU or Metal backend, NVIDIA GPU not supported
    - Use CPU mode for testing: `init(arch="cpu")`
 
 3. **Dependency conflicts:**

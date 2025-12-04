@@ -22,7 +22,6 @@ requirements = [
     'imageio',
     'matplotlib',
     'psutil',
-    'pynvml>=11.4.1',
     'shapely>=1.8',
     'meshio',
     'rtree',
