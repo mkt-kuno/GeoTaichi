@@ -47,67 +47,194 @@ Have a cool example? Submit a [PR](https://github.com/Yihao-Shi/GeoTaichi/pulls)
 | ![A sphere impacting granular bed](images/mpdem1.gif) | ![Granular column impacting cubic particles](images/mpdem2.gif) | ![Box sinking into water](images/box_sinking.gif) |
 
 ## Quick start
+
 ### Installation
-#### Install from source code (recommand)
-##### Ubuntu
-1. Change the current working directory to the desired location and download the GeoTaichi code:
-```
-cd /path/to/desired/location/
+
+GeoTaichi can be installed using multiple methods depending on your preference and environment.
+
+#### Method 1: Install with pip (Recommended for most users)
+
+The simplest way to install GeoTaichi:
+
+```bash
+# Clone the repository
 git clone https://github.com/Yihao-Shi/GeoTaichi
 cd GeoTaichi
-```
-2. Install essential dependencies
-```
-# Install python and pip
-sudo apt-get install python3.8
-sudo apt-get install python3-pip
 
-# Install python packages (recommand to add package version)
+# Install with pip
+pip install .
+
+# Or install in editable mode for development
+pip install -e .
+```
+
+**With optional dependencies:**
+```bash
+# Install with GPU support
+pip install -e ".[gpu]"
+
+# Install with mesh processing support (gmsh)
+pip install -e ".[mesh]"
+
+# Install with all optional dependencies
+pip install -e ".[all]"
+```
+
+#### Method 2: Install with uv (Fast and modern)
+
+[uv](https://github.com/astral-sh/uv) is a fast Python package installer and resolver:
+
+```bash
+# Install uv if you haven't already
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Clone the repository
+git clone https://github.com/Yihao-Shi/GeoTaichi
+cd GeoTaichi
+
+# Create a virtual environment and install
+uv venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install the package
+uv pip install -e .
+
+# Or with optional dependencies
+uv pip install -e ".[all]"
+```
+
+#### Method 3: Install with Conda/Mamba (Cross-platform)
+
+For users who prefer conda environments:
+
+```bash
+# Clone the repository
+git clone https://github.com/Yihao-Shi/GeoTaichi
+cd GeoTaichi
+
+# Create and activate conda environment
+conda env create -f geotaichi_env.yml
+conda activate geotaichi
+
+# Install GeoTaichi in the environment
+pip install -e .
+```
+
+**Note:** After conda environment creation, you may need to install the package itself:
+```bash
+conda activate geotaichi
+pip install -e .
+```
+
+#### Method 4: Install from source (Advanced users)
+
+For development or custom builds:
+
+```bash
+# Clone the repository
+git clone https://github.com/Yihao-Shi/GeoTaichi
+cd GeoTaichi
+
+# Install dependencies
 bash requirements.sh
+
+# Set up Python path (Linux/Mac)
+export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+
+# Or on Windows
+set PYTHONPATH=%PYTHONPATH%;%CD%
 ```
-3. Install CUDA, detailed information can be referred to [official installation guide](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
-4. Set up environment variables
+
+### System Requirements
+
+**Minimum Requirements:**
+- Python 3.8 or higher
+- 4GB RAM (8GB+ recommended)
+- CPU with AVX2 support
+
+**GPU Requirements (Optional but recommended for large simulations):**
+- NVIDIA GPU with CUDA support
+- CUDA Toolkit 11.0 or higher
+- cuDNN (for optimal performance)
+
+**Platform Support:**
+- ✅ Linux (Ubuntu 18.04+, CentOS 7+)
+- ✅ Windows 10/11
+- ✅ macOS 10.15+ (CPU and Metal GPU support)
+
+### Known Dependency Issues
+
+**Issue 1: gmsh library dependencies**
+- `gmsh` requires system library `libGLU.so.1` on Linux
+- **Solution:** `sudo apt-get install libglu1-mesa` (Ubuntu/Debian)
+- Or install with: `pip install -e ".[mesh]"` only if needed
+
+**Issue 2: open3d on some systems**
+- `open3d` may have compatibility issues with older systems
+- **Solution:** Try installing specific version: `pip install open3d==0.17.0`
+
+**Issue 3: shapely with spatial indexing**
+- `rtree` requires `libspatialindex`
+- **Solution (Ubuntu/Debian):** `sudo apt-get install libspatialindex-dev`
+- **Solution (macOS):** `brew install spatialindex`
+
+**Issue 4: GPU support**
+- NVIDIA GPU support requires CUDA toolkit installation
+- See [CUDA Installation Guide](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
+- macOS uses Metal backend automatically (no CUDA needed)
+
+### Verifying Installation
+
+After installation, verify GeoTaichi is working:
+
+```python
+# Test import
+from geotaichi import *
+
+# Initialize (CPU mode for testing)
+init(arch="cpu")
+
+# Create a simple DEM simulation
+dem = DEM()
+print("✓ GeoTaichi installed successfully!")
 ```
-sudo gedit ~/.bashrc
-$ export PYTHONPATH="$PYTHONPATH:/path/to/desired/location/GeoTaichi"
-source ~/.bashrc
+
+### Troubleshooting
+
+If you encounter import errors:
+
+1. **ModuleNotFoundError for geotaichi:**
+   - Ensure you installed the package: `pip install -e .`
+   - Check Python path: `python -c "import sys; print(sys.path)"`
+
+2. **CUDA/GPU errors:**
+   - Verify CUDA installation: `nvidia-smi`
+   - Use CPU mode for testing: `init(arch="cpu")`
+
+3. **Dependency conflicts:**
+   - Create a fresh virtual environment
+   - Install with uv for better dependency resolution: `uv pip install -e .`
+
+For more issues, see [GitHub Issues](https://github.com/Yihao-Shi/GeoTaichi/issues) or the [Migration Guide](MIGRATION_GUIDE.md).
+
+### Quick Start Examples
+
+After installation, try running examples:
+
+```bash
+# Run a simple DEM example
+cd example/dem/RotatingDrums
+python rotating_drum.py
+
+# Run an MPM example
+cd example/mpm/ColumnCollapse
+python DPmaterial.py
 ```
-##### Windows
-1. Install Anaconda 
-2. start Anaconda Prompt 
-3. Navigate to a folder where geotaichi_env.yml is located. 
-4. clone geotaichi as:
-```
-git clone https://github.com/Yihao-Shi/GeoTaichi 
-```
-5. run command:
-```
-conda env create -f geotaichi_env.yml 
-```
-6. run command:
-```
-conda activate geotaichi 
-```
-7. correct the environment (the last part should be modified to the path of geotaichi):
-```
-conda env config vars set PYTHONPATH=%PYTHONPATH%;.\path\to\GeoTaichi 
-```
-8. run command:
-```
-conda activate geotaichi 
-```
-9. run a benchmark (column collapse):
-```
-python DPmaterial 
-```
-Remark: line 3 of the examples should be modified based on the availability of the GPU. If CPU is available, the following should be used;
-```
-init('cpu')
-```
-#### Install from pip (easy)
-```
-pip install geotaichi
-```
+
+**Note:** Modify `init()` calls based on your hardware:
+- For CPU: `init(arch="cpu")`
+- For GPU: `init(arch="gpu")`
+- For macOS GPU: `init(arch="metal")`
 
 ### Working with vtu files
 

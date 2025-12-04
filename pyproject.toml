@@ -46,6 +46,34 @@ dependencies = [
     "rich",
 ]
 
+[project.optional-dependencies]
+# GPU support (requires CUDA)
+gpu = [
+    "pynvml>=11.4.1",
+]
+# Advanced mesh processing
+mesh = [
+    "gmsh",
+]
+# Development dependencies
+dev = [
+    "pytest",
+    "pytest-cov",
+    "black",
+    "flake8",
+    "mypy",
+]
+# All optional dependencies
+all = [
+    "pynvml>=11.4.1",
+    "gmsh",
+    "pytest",
+    "pytest-cov",
+    "black",
+    "flake8",
+    "mypy",
+]
+
 [project.urls]
 Homepage = "https://github.com/Yihao-Shi/GeoTaichi"
 Repository = "https://github.com/Yihao-Shi/GeoTaichi"
@@ -56,3 +84,33 @@ Documentation = "https://github.com/Yihao-Shi/GeoTaichi"
 where = ["."]
 include = ["geotaichi*", "third_party*"]
 exclude = ["test*", "example*", "docs*"]
+
+# UV-specific configuration
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+
+[tool.uv.sources]
+# Use PyPI for all packages
+geotaichi = { workspace = true }
+
+# Black configuration
+[tool.black]
+line-length = 120
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | \.tox
+  | build
+  | dist
+  | third_party
+)/
+'''
