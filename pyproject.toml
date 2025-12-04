@@ -32,14 +32,11 @@ dependencies = [
 Homepage = "https://github.com/Yihao-Shi/GeoTaichi"
 Repository = "https://github.com/Yihao-Shi/GeoTaichi"
 
-[tool.setuptools]
-packages = {find = {}}
+[tool.setuptools.packages.find]
+include = ["geotaichi*", "src*", "third_party*"]
 
 [tool.setuptools.package-data]
 "*" = ["*.so", "*.dll", "*.dylib"]
-
-[tool.setuptools.packages.find]
-include = ["geotaichi*", "src*"]
 
 [tool.pyright]
 reportInvalidTypeForm = false

@@ -125,22 +125,30 @@ def init(dim=3, arch="gpu", cpu_max_num_threads=0, offline_cache=True, debug=Fal
             print("Using GPU on macOS (Metal backend).")
             ti.init(arch=ti.metal, offline_cache=offline_cache, debug=debug, default_fp=default_fp, default_ip=default_ip, kernel_profiler=kernel_profiler, log_level=ti.ERROR)
         else:
-            import pynvml
-            pynvml.nvmlInit()
-            handle = pynvml.nvmlDeviceGetHandleByIndex(0)
-            gpu_name = pynvml.nvmlDeviceGetName(handle=handle)
-            gpu_memory = pynvml.nvmlDeviceGetMemoryInfo(handle=handle)
-            pynvml.nvmlShutdown()
-            print(f"Using device {gpu_name} (Total: {bytes_to_GB(gpu_memory.total)}GB, Available: {bytes_to_GB(gpu_memory.free)}GB)")
+            try:
+                import pynvml
+                pynvml.nvmlInit()
+                handle = pynvml.nvmlDeviceGetHandleByIndex(0)
+                gpu_name = pynvml.nvmlDeviceGetName(handle=handle)
+                gpu_memory = pynvml.nvmlDeviceGetMemoryInfo(handle=handle)
+                pynvml.nvmlShutdown()
+                print(f"Using device {gpu_name} (Total: {bytes_to_GB(gpu_memory.total)}GB, Available: {bytes_to_GB(gpu_memory.free)}GB)")
 
-            if device_memory_GB is None and device_memory_fraction is None:
-                ti.init(arch=ti.gpu, offline_cache=offline_cache, debug=debug, default_fp=default_fp, default_ip=default_ip, kernel_profiler=kernel_profiler, log_level=ti.ERROR)
-            elif not device_memory_GB is None:
-                device_memory_GB = min(device_memory_GB, bytes_to_GB(gpu_memory.free))
-                ti.init(arch=ti.gpu, offline_cache=offline_cache, device_memory_GB=device_memory_GB, debug=debug, default_fp=default_fp, default_ip=default_ip, kernel_profiler=kernel_profiler, log_level=ti.ERROR)
-            elif not device_memory_fraction is None:
-                device_memory_GB = min(device_memory_fraction, bytes_to_GB(gpu_memory.free) / bytes_to_GB(gpu_memory.total))
-                ti.init(arch=ti.gpu, offline_cache=offline_cache, device_memory_fraction=device_memory_fraction, debug=debug, default_fp=default_fp, default_ip=default_ip, kernel_profiler=kernel_profiler, log_level=ti.ERROR)
+                if device_memory_GB is None and device_memory_fraction is None:
+                    ti.init(arch=ti.gpu, offline_cache=offline_cache, debug=debug, default_fp=default_fp, default_ip=default_ip, kernel_profiler=kernel_profiler, log_level=ti.ERROR)
+                elif not device_memory_GB is None:
+                    device_memory_GB = min(device_memory_GB, bytes_to_GB(gpu_memory.free))
+                    ti.init(arch=ti.gpu, offline_cache=offline_cache, device_memory_GB=device_memory_GB, debug=debug, default_fp=default_fp, default_ip=default_ip, kernel_profiler=kernel_profiler, log_level=ti.ERROR)
+                elif not device_memory_fraction is None:
+                    device_memory_GB = min(device_memory_fraction, bytes_to_GB(gpu_memory.free) / bytes_to_GB(gpu_memory.total))
+                    ti.init(arch=ti.gpu, offline_cache=offline_cache, device_memory_fraction=device_memory_fraction, debug=debug, default_fp=default_fp, default_ip=default_ip, kernel_profiler=kernel_profiler, log_level=ti.ERROR)
+            except Exception as e:
+                print(f"Warning: Could not initialize NVIDIA GPU ({str(e)}). Falling back to CPU.")
+                print("Using CPU backend as fallback.")
+                if cpu_max_num_threads == 0:
+                    ti.init(arch=ti.cpu, offline_cache=offline_cache, debug=debug, default_fp=default_fp, default_ip=default_ip, kernel_profiler=kernel_profiler, log_level=ti.ERROR)
+                else:
+                    ti.init(arch=ti.cpu, cpu_max_num_threads=cpu_max_num_threads, offline_cache=offline_cache, debug=debug, default_fp=default_fp, default_ip=default_ip, kernel_profiler=kernel_profiler, log_level=ti.ERROR)
     elif arch == "vulkan":
         print("Using Vulkan backend.")
         # For Vulkan, set default GPU memory to 4GB as requested
