@@ -3,7 +3,7 @@ import math
 
 from src.utils.constants import ZEROVEC3f, DELTA, PI, ZEROVEC4f, Threshold
 from src.utils.TypeDefination import vec3f, vec4f, mat2x2, mat3x3, mat4x4
-from src.utils.ScalarFunction import clamp
+from src.utils.ScalarFunction import clamp, safe_random
 from src.utils.VectorFunction import Normalize
 # https://api.flutter.dev/flutter/vector_math/Quaternion/setAxisAngle.html
 
@@ -73,7 +73,7 @@ def Normalized(q):
 def RandomGenerator():
     # From http://planning.cs.uiuc.edu/node198.html. 
     # See K. Shoemake - Uniform random rotations - In D. Kirk, editor, Graphics Gems III, pages 124-132. Academic, New York, 1992.
-    u1, u2, u3 = ti.random(), ti.random(), ti.random()
+    u1, u2, u3 = safe_random(float), safe_random(float), safe_random(float)
     q = vec4f([ti.sqrt(1 - u1) * ti.sin(2 * PI * u2),
                ti.sqrt(1 - u1) * ti.cos(2 * PI * u2),
                ti.sqrt(u1) * ti.sin(2 * PI * u3),

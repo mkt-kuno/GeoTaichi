@@ -2,6 +2,7 @@ import taichi as ti
 import numpy as np
 
 from src.utils.TypeDefination import vec3f
+from src.utils.ScalarFunction import safe_random
 
 
 @ti.data_oriented
@@ -36,7 +37,7 @@ class set_orientation:
 
     @ti.func
     def get_uniform_orientation(self):
-        return vec3f([360.*ti.random(float), 360.*ti.random(float), 360.*ti.random(float)])
+        return vec3f([360.*safe_random(float), 360.*safe_random(float), 360.*safe_random(float)])
 
     @ti.kernel
     def record_orientation(self, orient: ti.types.vector(3, float)):

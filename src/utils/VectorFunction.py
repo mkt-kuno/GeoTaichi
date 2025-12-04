@@ -3,6 +3,7 @@ import numpy as np
 
 from src.utils.constants import ZEROVEC3f, Threshold, SQRT3, DBL_EPSILON
 from src.utils.TypeDefination import vec3f, vec6f, mat2x2, mat3x3, vec2f
+from src.utils.ScalarFunction import safe_random
 
 
 @ti.func
@@ -38,7 +39,7 @@ def cartesian_coosys_to_local_orthogonal(globals, ex_local, ey_local, ez_local):
 
 @ti.func
 def return_uniform3f():
-    return vec3f([2*(ti.random()-0.5), 2*(ti.random()-0.5), 2*(ti.random()-0.5)]).normalized()
+    return vec3f([2*(safe_random(float)-0.5), 2*(safe_random(float)-0.5), 2*(safe_random(float)-0.5)]).normalized()
 
 @ti.func
 def TACIHI_NUMPY_SUB(TI_VEC, NP_VEC):

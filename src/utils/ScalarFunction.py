@@ -128,3 +128,20 @@ def biInterpolate(pt, xExtr, yExtr, knownVal):
     f11 = knownVal[1, 1]
     bracket = (pt[1] - y0) / gy * (f11 - f10 - f01 + f00) + f10 - f00
     return (pt[0] - x0) / gx * bracket + (pt[1] - y0) / gy * (f01 - f00) + f00
+
+
+@ti.func
+def safe_random(dtype=float):
+    """
+    Safe wrapper for ti.random() that works with Vulkan/SPIR-V backend.
+    Always generates random numbers as f32, then casts to the desired type.
+    This avoids the SPIR-V limitation where ti.random() only supports 32-bit types.
+    
+    Args:
+        dtype: Target data type (default: float, which follows ti.init default_fp)
+    
+    Returns:
+        Random float value in [0, 1) with the specified dtype
+    """
+    # Always generate as f32 (supported by SPIR-V), then cast to target type
+    return ti.cast(ti.random(ti.f32), dtype)
