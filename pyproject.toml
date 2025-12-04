@@ -26,6 +26,7 @@ dependencies = [
     "scikit-image",
     "open3d",
     "numpy",
+    "gmsh",
 ]
 
 [project.urls]
