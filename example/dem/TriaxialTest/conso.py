@@ -20,8 +20,9 @@ dem.memory_allocate(memory={
                                 "body_coordination_number":   16,
                                 "wall_coordination_number":   12,
                                 "verlet_distance_multiplier": 0.15,
-                                "wall_per_cell":              12
-                            })    
+                                "wall_per_cell":              12,
+                                "compaction_ratio": [1., 1.]
+                            })
 
 dem.set_solver({
                 "Timestep":         5e-7,
@@ -105,4 +106,3 @@ dem.servo_switch()
 dem.run(callback=consol_ss)
 
 dem.postprocessing(read_path="Medium/consolidation", write_path="Medium/consolidation/vtks")
-    
