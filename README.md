@@ -48,66 +48,8 @@ Have a cool example? Submit a [PR](https://github.com/Yihao-Shi/GeoTaichi/pulls)
 
 ## Quick start
 ### Installation
-#### Install from source code (recommand)
-##### Ubuntu
-1. Change the current working directory to the desired location and download the GeoTaichi code:
-```
-cd /path/to/desired/location/
-git clone https://github.com/Yihao-Shi/GeoTaichi
-cd GeoTaichi
-```
-2. Install essential dependencies
-```
-# Install python and pip
-sudo apt-get install python3.8
-sudo apt-get install python3-pip
 
-# Install python packages (recommand to add package version)
-bash requirements.sh
-```
-3. Install CUDA, detailed information can be referred to [official installation guide](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
-4. Set up environment variables
-```
-sudo gedit ~/.bashrc
-$ export PYTHONPATH="$PYTHONPATH:/path/to/desired/location/GeoTaichi"
-source ~/.bashrc
-```
-##### Windows
-1. Install Anaconda 
-2. start Anaconda Prompt 
-3. Navigate to a folder where geotaichi_env.yml is located. 
-4. clone geotaichi as:
-```
-git clone https://github.com/Yihao-Shi/GeoTaichi 
-```
-5. run command:
-```
-conda env create -f geotaichi_env.yml 
-```
-6. run command:
-```
-conda activate geotaichi 
-```
-7. correct the environment (the last part should be modified to the path of geotaichi):
-```
-conda env config vars set PYTHONPATH=%PYTHONPATH%;.\path\to\GeoTaichi 
-```
-8. run command:
-```
-conda activate geotaichi 
-```
-9. run a benchmark (column collapse):
-```
-python DPmaterial 
-```
-Remark: line 3 of the examples should be modified based on the availability of the GPU. If CPU is available, the following should be used;
-```
-init('cpu')
-```
-#### Install from pip (easy)
-```
-pip install geotaichi
-```
+use [uv](https://github.com/astral-sh/uv) , with a standalone installer version
 
 ### Working with vtu files
 
