@@ -1,3 +1,5 @@
+import os
+import tempfile
 import numpy as np
 import open3d as o3d
 import meshio
@@ -18,7 +20,7 @@ from src.sdf.FastMarchingMethod import FastMarchingMethod
 from src.utils.linalg import (heaviside_function, transformation_matrix_coordinate_system, generate_grid)
 from src.utils.Root import newton
 import trimesh as tm
-from trimesh.interfaces import gmsh
+import gmsh
 from third_party.pyevtk.hl import unstructuredGridToVTK, gridToVTK
 from third_party.pyevtk.vtk import VtkTriangle, VtkQuad
 
@@ -580,8 +582,37 @@ class BasicShape(object):
 
     def tetrahedization(self, max_length=None, algorithm=1, refine_number=0):
         if self.tetramesh is None:
-            gmsh.to_volume(self.mesh, "tetraObject.msh", max_length, algorithm, refine_number)
+            self._gmsh_to_volume(self.mesh, "tetraObject.msh", max_length, algorithm, refine_number)
             self.tetramesh = meshio.read("tetraObject.msh")
+
+    def _gmsh_to_volume(self, output_path, max_length=None, algorithm=1, refine_number=0):
+        gmsh.initialize()
+        try:
+            with tempfile.NamedTemporaryFile(suffix='.stl', delete=False) as f:
+                temp_stl = f.name
+            self.mesh.export(temp_stl)
+            gmsh.open(temp_stl)
+            gmsh.model.mesh.createGeometry()
+
+            s = gmsh.model.getEntities(2)
+            l = gmsh.model.geo.addSurfaceLoop([e[1] for e in s])
+            gmsh.model.geo.addVolume([l])
+            gmsh.model.geo.synchronize()
+
+            if max_length is not None:
+                gmsh.option.setNumber("Mesh.CharacteristicLengthMax", max_length)
+            gmsh.option.setNumber("Mesh.Algorithm3D", algorithm)
+
+            gmsh.model.mesh.generate(3)
+
+            for _ in range(refine_number):
+                gmsh.model.mesh.refine()
+
+            gmsh.write(output_path)
+        finally:
+            gmsh.finalize()
+            if os.path.exists(temp_stl):
+                os.remove(temp_stl)
 
 
 class pointcloud(BasicShape):
