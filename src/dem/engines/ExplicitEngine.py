@@ -96,7 +96,7 @@ class ExplicitEngine(object):
             if callback is None:
                 self.callback = no_operation
             else:
-                self.callback = ti.kernel(callback)
+                self.callback = callback
         else:
             self.update_servo_wall = no_operation
 
